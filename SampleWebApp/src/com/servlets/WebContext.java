@@ -6,6 +6,7 @@ import javax.servlet.ServletContextAttributeListener;
 
 public class WebContext implements ServletContextAttributeListener {
 
+	@SuppressWarnings("unused")
 	private ServletContext context = null;
 	
 	@Override

@@ -1,7 +1,6 @@
 package com.servlets;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 public class HomeServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
+	@SuppressWarnings("unused")
 	private int count = 0;
 
 	/**
