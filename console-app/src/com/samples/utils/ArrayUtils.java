@@ -129,4 +129,102 @@ public class ArrayUtils {
 		}		
 		System.out.print("]\n");
 	}
+	
+	public static void Print(int[][] array) {
+		int rows = array.length;
+		int coloumns = array[0].length;
+		
+		for (int i = 0; i < rows; i++) {
+			System.out.print("[");
+			for (int j = 0; j < coloumns; j++) {
+				if (j > 0) System.out.print(", ");
+					
+				System.out.print(array[i][j]);
+			}
+			System.out.print("]");
+			System.out.print("\n");
+		}
+	}
+	
+	/**
+	 * Returns a concentric Pattern 2D Array
+	 * @param num
+	 * @return
+	 */
+	
+	public static int[][] GetConcentricPattern(int num) {
+		if (num < 1) return null;
+		
+		int rows = 1;
+		int coloumns = 1;
+		
+		if (num > 1) {
+			rows = num + (num -1);
+			coloumns = num + (num -1);
+		}		
+		
+		int[][] array = new int[rows][coloumns];
+		
+		int row = 0, col = 0, layer = 0;		
+		int direction = 0;
+		
+		array[0][0] = num;
+		for(int i = 1; i< rows * coloumns; i++) {
+			switch (direction) {
+			case 0:
+                if (col == coloumns - layer - 1)
+                {
+                    direction++;
+                    row++;
+                }
+                else
+                {
+                    col++;
+                }
+                break;
+            case 1:
+                if (row == rows - layer - 1)
+                {
+                    direction++;
+                    col--;
+                }
+                else
+                {
+                    row++;
+                }
+                break;
+            case 2:
+
+                if (col == layer)
+                {
+                    direction++;
+                    row--;
+                }
+                else
+                {
+                    col--;
+                }
+
+                break;
+            case 3:
+                if (row == layer + 1)
+                {
+                    direction = 0;
+                    col++;
+                    layer++;
+                    num--;
+                }
+                else
+                {
+                    row--;
+                }                
+                break;
+			}
+			
+			array[row][col] = num;			
+		}	
+		
+		
+		return array;
+	}
 }
