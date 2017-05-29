@@ -64,7 +64,7 @@ public class ArrayUtils {
 	 * Sets entire row and column values to zero for each zero value in matrix
 	 * @param array
 	 */
-	public static void SetMatrixZeroes(ArrayList<ArrayList<Integer>> array) {		
+	public static void setMatrixZeroes(ArrayList<ArrayList<Integer>> array) {		
 		int[] rows = new int[array.size()];
 		int[] coloumns = new int[array.get(0).size()];
 		
@@ -98,7 +98,7 @@ public class ArrayUtils {
 	 * Prints a 2D array - 
 	 * @param array
 	 */
-	public static void Print(ArrayList<ArrayList<Integer>> array) {
+	public static void print(ArrayList<ArrayList<Integer>> array) {
 
 		int rows = array.size();
 		int coloumns = array.get(0).size();
@@ -119,7 +119,7 @@ public class ArrayUtils {
 	/**
 	 * @param array
 	 */
-	public static void Print(int[] array) {
+	public static void print(int[] array) {
 		System.out.print("[");
 		for (int i = 0; i < array.length; i++) {
 			
@@ -130,7 +130,7 @@ public class ArrayUtils {
 		System.out.print("]\n");
 	}
 	
-	public static void Print(int[][] array) {
+	public static void print(int[][] array) {
 		int rows = array.length;
 		int coloumns = array[0].length;
 		
@@ -152,7 +152,7 @@ public class ArrayUtils {
 	 * @return
 	 */
 	
-	public static int[][] GetConcentricPattern(int num) {
+	public static int[][] getConcentricPattern(int num) {
 		if (num < 1) return null;
 		
 		int rows = 1;

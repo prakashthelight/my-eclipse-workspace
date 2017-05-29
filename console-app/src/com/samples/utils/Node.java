@@ -2,7 +2,7 @@ package com.samples.utils;
 
 public class Node {
 	
-	int value;
+	public int value;
 	Node next;
 	
 	public Node(int value) {

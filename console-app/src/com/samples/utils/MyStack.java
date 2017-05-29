@@ -2,7 +2,7 @@ package com.samples.utils;
 
 public class MyStack {
 	
-	Node top;	
+	private Node top;	
 		
 	public Node peek() {
 		if(top != null) {
@@ -28,6 +28,10 @@ public class MyStack {
 			node.next = top;
 			top = node;
 		}	
+	}
+	
+	public void push(int value) {
+		this.push(new Node(value));
 	}
 	
 	public void print() {
