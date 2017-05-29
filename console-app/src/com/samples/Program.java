@@ -18,7 +18,7 @@ public class Program {
 		int[] array = new int[] {12, 2, 14, 17, 9, 10, 26, 11, 67, 34, 89, 110, 2};
 		
 		ArrayUtils.print(array);		
-		SortUtils.mergeSort(array);
+		SortUtils.quickSort(array);
 		ArrayUtils.print(array);
 	}
 }
