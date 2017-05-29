@@ -3,7 +3,7 @@ package com.samples.utils;
 public class SortUtils {
 	
 	/**
-	 * sorts array using MergeSort Algorithm
+	 * sorts array using Merge Sort Algorithm
 	 * @param array
 	 */
 	public static void mergeSort(int[] array) {
@@ -43,13 +43,17 @@ public class SortUtils {
 	 * @param rightEnd
 	 */
 	private static void merge(int[] array, int[] temp, int leftStart, int rightEnd) {
+
+		// create boundaries for both sub arrays to be merged
 		int leftEnd = (leftStart + rightEnd) / 2;
 		int rightStart = leftEnd + 1;
 		
+		// temporary variables to be used in iteration
 		int left = leftStart;
 		int right = rightStart;
 		int index = leftStart;
 		
+		// merge in temporary array
 		while (left <= leftEnd && right <= rightEnd) {
 			if (array[left] <= array[right]) {
 				temp[index] = array[left];
@@ -64,6 +68,8 @@ public class SortUtils {
 		
 		System.arraycopy(array, left, temp, index, leftEnd - left + 1);
 		System.arraycopy(array, right, temp, index, rightEnd - right+ 1);
+		
+		// override back in original array
 		System.arraycopy(temp, leftStart, array, leftStart, rightEnd - leftStart + 1);
 	}
 

@@ -2,6 +2,14 @@ package com.samples.utils;
 
 public class SearchUtils {
 	
+	/**
+	 * binary search recursive
+	 * @param array
+	 * @param num
+	 * @param start
+	 * @param end
+	 * @return
+	 */
 	public static boolean binarySearch(int[] array, int num, int start, int end) {
 		boolean result = false;
 		if (array == null || array.length == 0 || start > end) {
@@ -21,6 +29,12 @@ public class SearchUtils {
 		return result;
 	}
 	
+	/**
+	 * binary search non-recursive
+	 * @param array
+	 * @param num
+	 * @return
+	 */
 	public static boolean binarySearch(int[] array, int num) {
 		boolean result = false;
 		
