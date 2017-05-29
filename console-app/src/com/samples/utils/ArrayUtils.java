@@ -131,6 +131,9 @@ public class ArrayUtils {
 	}
 	
 	public static void print(int[][] array) {
+		
+		if (array == null) return;
+		
 		int rows = array.length;
 		int coloumns = array[0].length;
 		
@@ -153,15 +156,10 @@ public class ArrayUtils {
 	 */
 	
 	public static int[][] getConcentricPattern(int num) {
-		if (num < 1) return null;
+		if (num < 1) return null;	
 		
-		int rows = 1;
-		int coloumns = 1;
 		
-		if (num > 1) {
-			rows = num + (num -1);
-			coloumns = num + (num -1);
-		}		
+		int rows = 2* num -1, coloumns = 2* num -1;
 		
 		int[][] array = new int[rows][coloumns];
 		
@@ -226,5 +224,26 @@ public class ArrayUtils {
 		
 		
 		return array;
+	}
+	
+	public ArrayList<ArrayList<Integer>> prettyPrint(int a) {
+		
+		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
+		int[][] array = getConcentricPattern(a);
+		
+		if (array != null) {
+			for (int i = 0; i < array.length; i++) {
+				int[] row = array[i];		
+				
+				ArrayList<Integer> newRow = new ArrayList<>();				
+				for (int num : row) {
+					newRow.add(num);
+				}
+				
+				list.add(newRow);
+			}
+		}
+		
+		return list;
 	}
 }
