@@ -151,7 +151,7 @@ public class SearchUtils {
 			if (mid == array.length - 1 || array[mid+1] > num) {
 				return mid;
 			} else {
-				return findFirstIndex(array, mid+1, right, num);
+				return findLastIndex(array, mid+1, right, num);
 			}
 		}		
 	}
