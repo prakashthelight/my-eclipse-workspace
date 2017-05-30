@@ -12,7 +12,7 @@ public class ArrayUtils {
 	 */
 	public static int[] twoSum(int[] array, int target) {
 		if (array == null || array.length < 2) {
-			return new int[] {-1, -1};
+			return new int[] {0, 0};
 		}
 		
 		// Use HashMap to store compliment number we are looking for each number
@@ -25,7 +25,7 @@ public class ArrayUtils {
 			}
 		}
 		
-		return new int[] {-1, -1};
+		return new int[] {0, 0};
 	}
 	
 	/**
