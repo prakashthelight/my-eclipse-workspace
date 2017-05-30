@@ -59,7 +59,7 @@ public class MyLinkedList {
 		if (current != null) {
 			prev.next = current.next;
 		} else {
-			System.out.println("Index out of boud");
+			System.out.println("IndexOutOfBound - Linked list is not long enough for this index");
 		}
 		
 		return;
@@ -95,6 +95,42 @@ public class MyLinkedList {
 		return;		
 	}
 	
+	public void reverse() {
+		
+		if (head == null || head.next == null) {
+			return;
+		}
+		
+		Node p1 = head;
+		Node p2 = head.next;
+		
+		head.next = null;
+		while (p2 != null) {
+			Node temp = p2.next;
+			p2.next = p1;
+			p1 = p2;
+			p2 = temp;
+		}
+		
+		head = p1;
+	}
+	
+	public void reverseRecursvive() {
+		head = reverse(head);
+	}
+	
+	private Node reverse(Node head) {
+		if (head == null || head.next == null) 
+			return head;
+		
+		Node sec = head.next;
+		head.next = null;
+		
+		Node newHead = reverse(sec);
+		sec.next = head;
+		
+		return newHead;
+	}
 	
 	/**
 	 * prints a linked list	
@@ -108,7 +144,7 @@ public class MyLinkedList {
 		
 		
 		while(temp != null) {
-			System.out.println(temp.value);
+			System.out.print(temp.value + " ");
 			temp = temp.next;
 		}		
 	}

@@ -12,7 +12,7 @@ public class ArrayUtils {
 	 */
 	public static int[] twoSum(int[] array, int target) {
 		if (array == null || array.length < 2) {
-			return new int[] {0, 0};
+			return new int[] {-1, -1};
 		}
 		
 		// Use HashMap to store compliment number we are looking for each number
@@ -25,7 +25,7 @@ public class ArrayUtils {
 			}
 		}
 		
-		return new int[] {0, 0};
+		return new int[] {-1, -1};
 	}
 	
 	/**
@@ -117,6 +117,7 @@ public class ArrayUtils {
 	
 	
 	/**
+	 * prints an array
 	 * @param array
 	 */
 	public static void print(int[] array) {
@@ -130,6 +131,10 @@ public class ArrayUtils {
 		System.out.print("]\n");
 	}
 	
+	/**
+	 * prints a 2D array
+	 * @param array
+	 */
 	public static void print(int[][] array) {
 		
 		if (array == null) return;
@@ -153,8 +158,7 @@ public class ArrayUtils {
 	 * Returns a concentric Pattern 2D Array
 	 * @param num
 	 * @return
-	 */
-	
+	 */	
 	public static int[][] getConcentricPattern(int num) {
 		if (num < 1) return null;	
 		
@@ -226,7 +230,12 @@ public class ArrayUtils {
 		return array;
 	}
 	
-	public ArrayList<ArrayList<Integer>> prettyPrint(int a) {
+	/**
+	 * generates a nxn matrix with specific pattern
+	 * @param a
+	 * @return
+	 */
+	public static ArrayList<ArrayList<Integer>> prettyPrint(int a) {
 		
 		ArrayList<ArrayList<Integer>> list = new ArrayList<ArrayList<Integer>>();
 		int[][] array = getConcentricPattern(a);
@@ -246,4 +255,33 @@ public class ArrayUtils {
 		
 		return list;
 	}
+	
+	public static void rotateSortedArray(int[] array, int count){
+		
+		if (count < 1 || array.length < 2) {
+			return;
+		}
+		
+		int length = array.length;
+		
+		while(count > 0) {
+			int temp = array[0];			
+			for (int i = 0; i < array.length - 1; i++) {
+				array[i] = array[i+1];
+			}
+			array[length -1] = temp;
+			count--;
+		}
+	}	
+	
+	public static int findPivot(int[] array){	
+		return  findPivot(array, 0, array.length - 1);
+	}
+
+	private static int findPivot(int[] array, int left, int right) {
+		
+		return 0;
+	}
+	
+	
 }
