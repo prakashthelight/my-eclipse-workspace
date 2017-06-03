@@ -12,6 +12,7 @@ public class MyLinkedList {
 
 	public void initialize() {
 		int[] nodes = new int[] { 12, 23, 8, 12, 8, 18, 20, 30, 4, 15, 15 };
+
 		for (int num : nodes) {
 			this.add(num);
 		}
