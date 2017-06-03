@@ -1,11 +1,20 @@
 package com.samples.utils;
 
+import java.util.HashSet;
+
 public class MyLinkedList {
 
 	private Node head;
 
 	public Node getHead() {
 		return head;
+	}
+
+	public void initialize() {
+		int[] nodes = new int[] { 12, 23, 8, 12, 8, 18, 20, 30, 4, 15, 15 };
+		for (int num : nodes) {
+			this.add(num);
+		}
 	}
 
 	/**
@@ -52,20 +61,17 @@ public class MyLinkedList {
 			return;
 		}
 
-		Node prev = head;
-		Node current = head.next;
+		Node temp = head;
 		int index = 1;
 
-		while (current != null && position != index) {
-			prev = current;
-			current = current.next;
-			index++;
-		}
+		while (temp.next != null) {
+			if (position == index) {
+				temp.next = temp.next.next;
+				break;
+			}
 
-		if (current != null) {
-			prev.next = current.next;
-		} else {
-			System.out.println("IndexOutOfBound - Linked list is not long enough for this index");
+			index++;
+			temp = temp.next;
 		}
 
 		return;
@@ -87,21 +93,63 @@ public class MyLinkedList {
 			return;
 		}
 
-		Node prev = head;
-		Node current = head.next;
+		Node temp = head;
 
-		while (current != null && current.value != key) {
-			prev = current;
-			current = current.next;
-		}
+		while (temp.next != null) {
+			if (temp.next.value == key) {
+				temp.next = temp.next.next;
+				return;
+			}
 
-		if (current != null) {
-			prev.next = current.next;
+			temp = temp.next;
 		}
 
 		return;
 	}
 
+	/**
+	 * removes duplicate nodes
+	 */
+	public void removeDuplicate() {
+
+		if (head == null || head.next == null)
+			return;
+
+		HashSet<Integer> set = new HashSet<>();
+
+		set.add(head.value);
+
+		Node temp = head;
+		while (temp.next != null) {
+			if (set.contains(temp.next.value)) {
+				temp.next = temp.next.next;
+			} else {
+				set.add(temp.next.value);
+				temp = temp.next;
+			}
+		}
+
+		return;
+	}
+
+	public void printKthFromLast() {
+		printKthFromLast(head);
+	}
+
+	public int printKthFromLast(Node head) {
+
+		int count = 0;
+		if (head.next != null) {
+			count = printKthFromLast(head.next) + 1;
+		}
+
+		System.out.println(head.value + " " + count);
+		return count;
+	}
+
+	/**
+	 * reverse a linked list
+	 */
 	public void reverse() {
 
 		if (head == null || head.next == null) {
@@ -122,10 +170,19 @@ public class MyLinkedList {
 		head = p1;
 	}
 
+	/**
+	 * reverse linked list recursive
+	 */
 	public void reverseRecursvive() {
 		head = reverse(head);
 	}
 
+	/**
+	 * reverse linked list recursive
+	 * 
+	 * @param head
+	 * @return
+	 */
 	private Node reverse(Node head) {
 		if (head == null || head.next == null)
 			return head;
@@ -143,15 +200,17 @@ public class MyLinkedList {
 	 * prints a linked list
 	 */
 	public void print() {
-
 		if (head == null) {
 			System.out.println("LinkedList is empty");
 		}
-		Node temp = head;
 
+		System.out.print("LinkedList: ");
+		Node temp = head;
 		while (temp != null) {
 			System.out.print(temp.value + " ");
 			temp = temp.next;
 		}
+
+		System.out.println();
 	}
 }

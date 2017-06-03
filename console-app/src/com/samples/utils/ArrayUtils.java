@@ -4,6 +4,42 @@ import java.util.*;
 
 public class ArrayUtils {
 
+	public int[] initialize() {
+		return new int[] { 12, 3, 56, 78, 2, 16, 43, 26 };
+	}
+
+	public int[][] initialize2D() {
+		return new int[][] { { 11, 12, 13, 14 }, { 15, 16, 17, 18 }, { 19, 20, 21, 22 }, { 23, 24, 25, 26 } };
+	}
+
+	/**
+	 * compressed a given string e.g. aabcccaaadd -> a2b1c3a3d2
+	 * 
+	 * @param str
+	 * @return
+	 */
+	public static String compress(String str) {
+		if (str == null || str.isEmpty())
+			return str;
+
+		StringBuilder sb = new StringBuilder();
+
+		int count = 0;
+		char[] chars = str.toCharArray();
+
+		for (int i = 0; i < chars.length; i++) {
+			count++;
+			if (i + 1 >= chars.length || chars[i] != chars[i + 1]) {
+				sb.append(chars[i]).append(count);
+				count = 0;
+			}
+		}
+
+		String compressedStr = sb.toString();
+
+		return compressedStr.length() < str.length() ? compressedStr : str;
+	}
+
 	/**
 	 * Returns index for numbers having sum equal to given number (unsorted
 	 * array)
@@ -273,13 +309,73 @@ public class ArrayUtils {
 		}
 	}
 
+	public static boolean findInPivotedArray(int[] array, int num) {
+		int pivot = findPivot(array);
+
+		if (pivot == -1) {
+			return SearchUtils.binarySearch(array, num);
+		}
+
+		if (array[0] <= num && num <= array[pivot]) {
+			return SearchUtils.binarySearch(array, num, 0, pivot);
+		} else {
+			return SearchUtils.binarySearch(array, num, pivot + 1, array.length - 1);
+		}
+	}
+
 	public static int findPivot(int[] array) {
 		return findPivot(array, 0, array.length - 1);
 	}
 
 	private static int findPivot(int[] array, int left, int right) {
 
-		return 0;
+		if (left > right)
+			return -1;
+		if (left == right)
+			return left;
+
+		int mid = (left + right) / 2;
+
+		if (mid < right && array[mid] > array[mid + 1]) {
+			return mid;
+		}
+
+		if (mid > left && array[mid] < array[mid - 1]) {
+			return mid - 1;
+		}
+
+		if (array[left] >= array[mid]) {
+			return findPivot(array, left, mid - 1);
+		}
+
+		return findPivot(array, mid + 1, right);
 	}
 
+	/**
+	 * rotates a 2D array by 90 degrees
+	 * 
+	 * @param array
+	 */
+
+	public static void rotate2DArray(int[][] array) {
+
+		if (array == null || array.length == 0 || array.length != array[0].length)
+			return;
+
+		for (int layer = 0; layer < array.length / 2; layer++) {
+
+			int start = layer;
+			int end = array.length - layer - 1;
+
+			for (int i = start; i < end; i++) {
+				int offset = i - start;
+
+				int top = array[start][i];
+				array[start][i] = array[end - offset][start];
+				array[end - offset][start] = array[end][end - offset];
+				array[end][end - offset] = array[i][end];
+				array[i][end] = top;
+			}
+		}
+	}
 }
