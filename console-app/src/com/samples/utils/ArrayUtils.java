@@ -11,6 +11,30 @@ public class ArrayUtils {
 	public int[][] initialize2D() {
 		return new int[][] { { 11, 12, 13, 14 }, { 15, 16, 17, 18 }, { 19, 20, 21, 22 }, { 23, 24, 25, 26 } };
 	}
+	
+	/**
+	 * returns length of substring with non-repeating characters 
+	 * @param str
+	 * @return
+	 */
+	public static int longestSubstring (String s) {		
+		int start = 0; int max = 0;        
+        int index = 0;
+        int length = s.length();
+        
+        HashSet<Character> chars = new HashSet<>();
+        while (index < length) {            
+            if (!chars.contains(s.charAt(index)))  {
+                chars.add(s.charAt(index++));                
+                max = Math.max(max, chars.size());
+            }
+            else {
+                chars.remove(s.charAt(start++));                
+            }
+        }
+        
+        return max;
+	}
 
 	/**
 	 * compressed a given string e.g. aabcccaaadd -> a2b1c3a3d2
