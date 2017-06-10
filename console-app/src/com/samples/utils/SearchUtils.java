@@ -1,5 +1,7 @@
 package com.samples.utils;
 
+import java.util.ArrayList;
+
 public class SearchUtils {
 
 	/**
@@ -161,5 +163,44 @@ public class SearchUtils {
 				return findLastIndex(array, mid + 1, right, num);
 			}
 		}
+	}
+	
+	/**
+	 * Given three arrays sorted in non-decreasing order, print all common elements in these arrays
+	 * @param a1
+	 * @param a2
+	 * @param a3
+	 * @return
+	 */
+	public static ArrayList<Integer> findCommonElements(int[] a1, int[] a2, int[] a3) {
+		//int[] a1 = new int[] {1, 5, 10, 20, 40, 80};
+        //int[] a2 = new int[] {5, 6, 7, 20, 80, 100};
+        //int[] a3 = new int[] {3, 4, 5, 15, 20, 30, 70, 80, 120};
+        
+        int i = 0, j = 0, k = 0;
+        
+        ArrayList<Integer> result = new ArrayList<>();
+        
+        while (i < a1.length && j < a2.length && k < a3.length) {
+        	// if first elements of each array are equal
+        	if (a1[i] == a2[j] && a2[j] == a3[k]) {
+        		result.add(a1[i]);
+        		i++;
+        		j++;
+        		k++;
+        	} else {
+        		// find minimum element and move forward in that array, and compare again.
+        		if (a1[i] <= a2[j] && a1[i] <= a3[k]) {
+        			i++;
+        		} else if (a2[j] <= a1[i] && a2[j] <= a3[k]) {
+        			j++;
+        		} else {
+        			k++;
+        		}
+        	}
+        }
+        
+        //System.out.println(Arrays.toString(result.toArray()));
+        return result;
 	}
 }

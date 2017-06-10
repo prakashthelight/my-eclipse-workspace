@@ -123,4 +123,40 @@ public class SortUtils {
 
 		return left;
 	}
+	
+	/**
+	 * Sorts a given array of negative and position elements such that all negative elements are before positive keeping their orginal order. 
+	 * @param array
+	 */
+	public static void sortBySign(int[]  array) {
+        for(int i = 0; i < array.length; i++)  {
+            for (int j = 0; j < array.length - 1-i; j++) {
+                if (array[j] > 0 && array[j+1] < 0) {
+                    int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }        
+    }
+	
+	public static void sortOddEven(int[]  array) {
+        for(int i = 0; i < array.length; i++)  {
+            for (int j = 0; j < array.length - 1-i; j++) {
+            	int a = array[j];
+            	int b = array[j+1];
+            	
+                if ((a % 2 == 0 && b % 2 == 1)
+                		|| ((a % 2 == 0 && b % 2 == 0) && a > b)
+                		|| ((a % 2 == 1 && b % 2 == 1) && a < b)){
+                	int temp = array[j];
+                    array[j] = array[j+1];
+                    array[j+1] = temp;
+                }
+            }
+        }        
+    }
+	
+	
+	
 }
