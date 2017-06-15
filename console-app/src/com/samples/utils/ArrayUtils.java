@@ -11,29 +11,30 @@ public class ArrayUtils {
 	public int[][] initialize2D() {
 		return new int[][] { { 11, 12, 13, 14 }, { 15, 16, 17, 18 }, { 19, 20, 21, 22 }, { 23, 24, 25, 26 } };
 	}
-	
+
 	/**
-	 * returns length of substring with non-repeating characters 
+	 * returns length of substring with non-repeating characters
+	 * 
 	 * @param str
 	 * @return
 	 */
-	public static int longestSubstring (String s) {		
-		int start = 0; int max = 0;        
-        int index = 0;
-        int length = s.length();
-        
-        HashSet<Character> chars = new HashSet<>();
-        while (index < length) {            
-            if (!chars.contains(s.charAt(index)))  {
-                chars.add(s.charAt(index++));                
-                max = Math.max(max, chars.size());
-            }
-            else {
-                chars.remove(s.charAt(start++));                
-            }
-        }
-        
-        return max;
+	public static int longestSubstring(String s) {
+		int start = 0;
+		int max = 0;
+		int index = 0;
+		int length = s.length();
+
+		HashSet<Character> chars = new HashSet<>();
+		while (index < length) {
+			if (!chars.contains(s.charAt(index))) {
+				chars.add(s.charAt(index++));
+				max = Math.max(max, chars.size());
+			} else {
+				chars.remove(s.charAt(start++));
+			}
+		}
+
+		return max;
 	}
 
 	/**
@@ -315,6 +316,11 @@ public class ArrayUtils {
 		return list;
 	}
 
+	/**
+	 * rotates sorted array for given number of elements
+	 * @param array
+	 * @param count
+	 */
 	public static void rotateSortedArray(int[] array, int count) {
 
 		if (count < 1 || array.length < 2) {
@@ -401,5 +407,64 @@ public class ArrayUtils {
 				array[i][end] = top;
 			}
 		}
+	}
+
+	/**
+	 * Returns shortest distance between two words in a array of strings
+	 * 
+	 * @param array
+	 * @param word1
+	 * @param word2
+	 * @return
+	 */
+	public static int shortestWordDistance(String[] array, String word1, String word2) {
+		int m = -1;
+		int n = -1;
+
+		int min = Integer.MAX_VALUE;
+
+		for (int i = 0; i < array.length; i++) {
+			if (word1.equals(array[i])) {
+				m = i;
+				if (n != -1) {
+					min = Math.min(min, m - n);
+				}
+			} else if (word2.equals(array[i])) {
+				n = i;
+
+				if (m != -1) {
+					min = Math.min(min, n - m);
+				}
+			}
+		}
+
+		return min;
+	}
+	
+	public static void printRunningMean(int[] array) {
+		
+		PriorityQueue<Integer> maxHeap = new PriorityQueue<>(Collections.reverseOrder());
+		PriorityQueue<Integer> minHeap = new PriorityQueue<>();
+		
+		int[] temp = new int[array.length];
+		
+		for (int i = 0; i < array.length; i++) {
+			temp[i] = array[i];
+			maxHeap.offer(array[i]);
+			minHeap.offer(maxHeap.poll());
+			
+			if (maxHeap.size() < minHeap.size()) {
+				maxHeap.offer(minHeap.poll());
+			}
+			
+			double mean = 0.0;
+			if (maxHeap.size() == minHeap.size()) {
+				mean = (maxHeap.peek() + minHeap.peek()) / 2.0;
+			} else {
+				mean = maxHeap.peek();
+			}
+			
+			System.out.println(Arrays.toString(temp) + " Mean: " + mean);
+		}		
 	}
 }

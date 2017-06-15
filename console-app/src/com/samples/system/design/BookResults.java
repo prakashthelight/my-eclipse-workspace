@@ -4,6 +4,13 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
+/**
+ * BookResults result = new BookResults();
+ * result.merge();
+ * result.printResult();
+ * @author kumarpr
+ *
+ */
 public class BookResults {
 	
 	ArrayList<ArrayList<Book>> results;

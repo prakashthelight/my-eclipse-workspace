@@ -2,7 +2,7 @@ package com.samples.utils;
 
 public class LinkListUtils {
 	/**
-	 * Adds two number represented as linked list (numbers are stored in reverse
+	 * adds two number represented as linked list (numbers are stored in reverse
 	 * order 123 = 3->2->1)
 	 * 
 	 * @param l1
@@ -75,7 +75,7 @@ public class LinkListUtils {
 	}
 
 	/**
-	 * 
+	 * appends new node as the last node
 	 * @param head
 	 * @param num
 	 * @return
@@ -99,6 +99,95 @@ public class LinkListUtils {
 		return;
 	}
 
+	/**
+	 * makes a loop in given linked list
+	 * @param head
+	 * @param position
+	 */
+	public static void makeCircular (Node head, int position) {
+		
+		if (head == null || head.next == null) return;
+		
+		Node positionNode = null;		
+		Node temp = head;
+		
+		int pos = 1;
+		
+		while (temp.next != null) {
+			if (position == pos) {
+				positionNode = temp;				
+			}
+			
+			temp = temp.next;
+			pos++;
+		}
+		
+		// if last is the one where we need to point for making it circular
+		if (position == pos) {
+			positionNode = temp;
+		}
+		
+		if (positionNode != null) {
+			temp.next = positionNode;
+		}
+		
+		return;
+	}
+	
+	public static int circularLinkStart(Node head) {
+		
+		if (head == null || head.next == null) return -1;
+		
+		Node slow = head;
+		Node fast = head.next;
+		
+		while (fast != null && fast.next != null) {
+			if (slow == fast) {
+				break;
+			}
+			
+			slow = slow.next;
+			fast = fast.next.next;
+		}		
+		
+		if (slow != fast) {
+			slow = null;
+		}
+		
+		return slow != null ? slow.next.value : -1;
+	}
+	
+	/**
+	 * return true if linked list is circular
+	 * @param head
+	 * @return
+	 */
+	public static boolean isCirtular(Node head) {
+		if (head == null || head.next == null) return false;
+		
+		Node slow = head;
+		Node fast = head.next;
+		
+		boolean result = false;
+		while(fast != null && fast.next != null) {
+			
+			if (slow == fast) {
+				result = true;
+				break;
+			}
+			
+			slow = slow.next;
+			fast = fast.next.next;			
+		}
+		
+		return result;
+		
+		
+	}
+	/**
+	 * prints linked list
+	 * @param head
+	 */
 	public static void print(Node head) {
 		System.out.println();
 		Node temp = head;
