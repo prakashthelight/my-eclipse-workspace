@@ -76,6 +76,7 @@ public class LinkListUtils {
 
 	/**
 	 * appends new node as the last node
+	 * 
 	 * @param head
 	 * @param num
 	 * @return
@@ -101,91 +102,127 @@ public class LinkListUtils {
 
 	/**
 	 * makes a loop in given linked list
+	 * 
 	 * @param head
 	 * @param position
 	 */
-	public static void makeCircular (Node head, int position) {
-		
-		if (head == null || head.next == null) return;
-		
-		Node positionNode = null;		
+	public static void makeCircular(Node head, int position) {
+
+		if (head == null || head.next == null)
+			return;
+
+		Node positionNode = null;
 		Node temp = head;
-		
+
 		int pos = 1;
-		
+
 		while (temp.next != null) {
 			if (position == pos) {
-				positionNode = temp;				
+				positionNode = temp;
 			}
-			
+
 			temp = temp.next;
 			pos++;
 		}
-		
+
 		// if last is the one where we need to point for making it circular
 		if (position == pos) {
 			positionNode = temp;
 		}
-		
+
 		if (positionNode != null) {
 			temp.next = positionNode;
 		}
-		
+
 		return;
 	}
-	
+
 	public static int circularLinkStart(Node head) {
-		
-		if (head == null || head.next == null) return -1;
-		
+
+		if (head == null || head.next == null)
+			return -1;
+
 		Node slow = head;
 		Node fast = head.next;
-		
+
 		while (fast != null && fast.next != null) {
 			if (slow == fast) {
 				break;
 			}
-			
+
 			slow = slow.next;
 			fast = fast.next.next;
-		}		
-		
+		}
+
 		if (slow != fast) {
 			slow = null;
 		}
-		
+
 		return slow != null ? slow.next.value : -1;
 	}
-	
+
 	/**
 	 * return true if linked list is circular
+	 * 
 	 * @param head
 	 * @return
 	 */
 	public static boolean isCirtular(Node head) {
-		if (head == null || head.next == null) return false;
-		
+		if (head == null || head.next == null)
+			return false;
+
 		Node slow = head;
 		Node fast = head.next;
-		
+
 		boolean result = false;
-		while(fast != null && fast.next != null) {
-			
+		while (fast != null && fast.next != null) {
+
 			if (slow == fast) {
 				result = true;
 				break;
 			}
-			
+
 			slow = slow.next;
-			fast = fast.next.next;			
+			fast = fast.next.next;
 		}
-		
+
 		return result;
-		
-		
+
 	}
+
+	/**
+	 * remove duplicate nodes from sorted linked list
+	 * 
+	 * @param head
+	 * @return
+	 */
+	public static Node deleteDuplicates(Node head) {
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node temp = head.next;
+		Node prev = head;
+
+		int value = head.value;
+
+		while (temp != null) {
+			if (temp.value == value) {
+				prev.next = temp.next;
+			} else {
+				prev = temp;
+				value = temp.value;
+			}
+
+			temp = temp.next;
+		}
+
+		return head;
+	}
+
 	/**
 	 * prints linked list
+	 * 
 	 * @param head
 	 */
 	public static void print(Node head) {

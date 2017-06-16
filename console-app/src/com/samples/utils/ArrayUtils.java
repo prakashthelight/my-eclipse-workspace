@@ -416,6 +416,9 @@ public class ArrayUtils {
 	 * @param word1
 	 * @param word2
 	 * @return
+	 * {@code 
+	 * String[] array = new String[] {"practice", "makes", "perfect", "coding", "makes"};
+	 * System.out.println(ArrayUtils.shortestWordDistance(array, "makes", "coding"));}
 	 */
 	public static int shortestWordDistance(String[] array, String word1, String word2) {
 		int m = -1;
@@ -440,6 +443,16 @@ public class ArrayUtils {
 
 		return min;
 	}
+	
+	/**
+	 * prints running mean of an integer stream
+	 * @param array - an array of integer
+	 * <pre>
+	 * {@code
+	 * int[] array = new int[] {12, 3, 4, 6};
+	 * ArrayUtils.printRunningMean(array);}
+	 * </pre>
+	 */
 	
 	public static void printRunningMean(int[] array) {
 		
