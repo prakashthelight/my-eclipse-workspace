@@ -480,4 +480,100 @@ public class ArrayUtils {
 			System.out.println(Arrays.toString(temp) + " Mean: " + mean);
 		}		
 	}
+	
+	/**
+	 * Returns index of target list into source list, else return -1
+	 * @param source
+	 * @param target
+	 * @return
+	 */
+	public static int indexOfSublist(List<Integer> source, List<Integer> target) {
+		
+		// if source list is not long enough
+		if (source.size() < target.size()) {
+			return -1;
+		}
+		
+		int i = 0;
+		int j = 0;
+		int startIndex = -1;
+		
+		while (i < source.size() && j < target.size()) {
+			if (source.get(i) != target.get(j)) {
+				if (startIndex == -1) {
+					i++;
+					continue;
+				} else {
+					i = startIndex + 1;
+					startIndex = -1;
+					j = 0;
+				}
+			} else {
+				if (startIndex == -1) {
+					startIndex = i;
+				}
+				i++;
+				j++;
+			}
+		}
+		
+		return startIndex;
+	}
+	
+	
+	/**
+	 * find median of two sorted arrays
+	 * @param array1
+	 * @param array2
+	 * @return
+	 */
+	public static double findMedian(int[] array1, int[] array2) {
+		int length = array1.length + array2.length;
+		
+		int count = 0;
+		
+		int middle = length / 2 + 1;
+		int middle2 = length/ 2;
+		
+		int a = Integer.MIN_VALUE; 
+		int b = Integer.MIN_VALUE;
+		
+		int i = 0;
+		int j = 0;	
+		
+		while (count < middle) {
+			int item = Integer.MIN_VALUE;
+			if (i < array1.length && i < array2.length) {
+				if (array1[i] <= array2[j]) {
+					item = array1[i];
+					count++;
+					i++;
+				} else {
+					item = array2[j];
+					count++;
+					j++;
+				}
+			} else if (i < array1.length) {
+				item = array1[i];
+				count++;
+				i++;
+			} else if (j < array2.length) {
+				item = array2[j];
+				count++;
+				j++;
+			}			
+			
+			if (count == middle2) {
+				b = item;
+			}
+			
+			if (count == middle) {
+				a = item;
+			}			
+		}
+		
+		System.out.println(a + " " + b);
+		
+		return length % 2 == 0 ? (a + b) / 2.0 : a / 2.0;
+	}
 }

@@ -110,6 +110,35 @@ public class MyLinkedList {
 
 		return;
 	}
+	
+	/**
+	 * remove all nodes for given key
+	 * @param key
+	 */
+	public void removeAllNodes(int key) {
+
+		if (head == null) {
+			return;
+		}
+
+		while (head != null && head.value == key) {
+			head = head.next;
+		}
+
+		Node temp = head;
+
+		while (temp != null && temp.next != null) {
+			if (temp.next.value == key) {
+				temp.next = temp.next.next;				
+			}
+			
+			temp = temp.next;
+		}
+
+		return;
+	}
+	
+	
 
 	/**
 	 * removes duplicate nodes
@@ -199,6 +228,40 @@ public class MyLinkedList {
 
 		return newHead;
 	}
+	
+	/**
+	 * arrange a linked list such that all odd position nodes are grouped in start and even position nodes are grouped in last
+	 */
+	public void arrangeEvenOddPosition() {
+		
+		if (this.head == null || this.head.next == null) {
+			return;
+		}
+		
+		Node p1 = head;
+		Node p2 = head.next;
+		
+		Node h1 = head;
+		Node h2 = head.next;
+		
+		if (p2.next == null) {
+			p1.next = p2.next;
+			p2.next = p1;			
+			head = p2;
+			return;
+		}
+		
+		while (p2 != null && p2.next != null) {			
+			p1.next = p2.next;
+			p2.next = p1.next.next;
+			
+			p1 = p1.next;
+			p2 = p2.next;
+		}
+		
+		p1.next = h2;
+		head = h1;
+	}
 
 	/**
 	 * prints a linked list
@@ -206,6 +269,7 @@ public class MyLinkedList {
 	public void print() {
 		if (head == null) {
 			System.out.println("LinkedList is empty");
+			return;
 		}
 
 		System.out.print("LinkedList: ");
