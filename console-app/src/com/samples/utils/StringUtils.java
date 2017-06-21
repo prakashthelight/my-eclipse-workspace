@@ -48,4 +48,30 @@ public class StringUtils {
 			end--;
 		}
 	}
+	
+	public static String lookAndSay (String str) {
+		
+		char[] chars = str.toCharArray();	
+		int i = 1;
+		
+		char ch = chars[0];
+		int count = 1;
+		
+		StringBuilder sb = new StringBuilder();
+		while (i < chars.length) {
+			if (chars[i] == ch) {
+				count++;
+				i++;
+			} else {
+				sb.append(count+"" + ch);
+				ch = chars[i];
+				count=1;
+				i++;
+			}
+		}
+		
+		sb.append(count+""+ch);
+		
+		return sb.toString();
+	}
 }

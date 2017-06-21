@@ -528,6 +528,7 @@ public class ArrayUtils {
 	 * @return
 	 */
 	public static double findMedian(int[] array1, int[] array2) {
+		
 		int length = array1.length + array2.length;
 		
 		int count = 0;
@@ -574,6 +575,6 @@ public class ArrayUtils {
 		
 		System.out.println(a + " " + b);
 		
-		return length % 2 == 0 ? (a + b) / 2.0 : a / 2.0;
+		return length % 2 == 0 ? (a + b) / 2.0 : a;
 	}
 }

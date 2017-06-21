@@ -1,8 +1,10 @@
 package com.samples.utils;
 
+import java.util.Stack;
+
 public class MathsUtils {
 	
-	public int gcd(int a, int b) {
+	public static int gcd(int a, int b) {
 	    if (b > a) {
 	        int temp = a;
 	        a = b;
@@ -21,4 +23,72 @@ public class MathsUtils {
 	        return gcd(a-b, b);    
 	    }
     }
+	
+	
+	public static String changeBaseTo7(int num) {
+		
+		if (num == 0) {
+			return "0";
+		}
+		
+		char[] chars = new char[] {'0', 'a', 't', 'l', 's', 'i', 'n'};
+		
+		Stack<Character> stack = new Stack<Character>();
+		
+		
+		while (num != 0) {
+			stack.push(chars[num % 7]);
+			num = num / 7;			
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		
+		while (!stack.isEmpty()) {			
+			sb.append(stack.pop()+"");
+		}
+		
+		return sb.toString();
+	}
+	
+	public static String changeBaseTo2(int num) {
+		
+		if (num == 0) {
+			return "0";
+		}
+		
+		Stack<Integer> stack = new Stack<Integer>();
+		
+		while (num != 0) {
+			stack.push(num % 2);
+			num = num / 2;			
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		
+		while (!stack.isEmpty()) {			
+			sb.append(stack.pop()+"");
+		}
+		
+		return sb.toString();
+	}
+	
+	public static int reverse(int num) {
+		int newInt = 0;        
+        while (num != 0) {
+            try {
+            	
+            	if (newInt > newInt * 10) 
+            		throw new ArithmeticException();
+                newInt = newInt * 10 + num % 10;    
+            } catch (ArithmeticException   e) {
+                newInt = 0;
+                break;
+            }
+            
+            num = num / 10;
+        }
+        
+        return newInt;
+	}
+	
 }

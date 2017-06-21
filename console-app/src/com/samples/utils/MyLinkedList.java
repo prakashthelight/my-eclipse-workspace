@@ -13,7 +13,7 @@ public class MyLinkedList {
 	public void initialize(int[] nodes) {
 
 		if (nodes == null || nodes.length == 0) {
-			nodes = new int[] { 12, 23, 8, 12, 8, 18, 20, 30, 4, 15, 15 };
+			nodes = new int[] { 1,2,3,4 };
 		}
 
 		for (int num : nodes) {
@@ -261,6 +261,30 @@ public class MyLinkedList {
 		
 		p1.next = h2;
 		head = h1;
+	}
+	
+	//TODO
+	public void swapeParis () {
+		
+		if (this.head == null || this.head.next == null) return;
+		
+		Node p1 = head;
+		Node p2 = head.next;
+		
+		if (p2.next == null) {
+			int temp = p1.value;
+			p1.value = p2.value;
+			p2.value = temp;
+			return;
+		}
+		
+		while (p1 != null && p2 != null && p1.next != null && p2.next != null) {
+			int temp = p1.value;
+			p1.value = p2.value;
+			p2.value = temp;
+			p1 = p2.next;
+			p2 = p1.next;			
+		}		
 	}
 
 	/**
