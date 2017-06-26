@@ -2,6 +2,8 @@ package com.samples.utils;
 
 import java.util.*;
 
+import com.samples.model.Word;
+
 public class ArrayUtils {
 
 	public int[] initialize() {
@@ -11,59 +13,32 @@ public class ArrayUtils {
 	public int[][] initialize2D() {
 		return new int[][] { { 11, 12, 13, 14 }, { 15, 16, 17, 18 }, { 19, 20, 21, 22 }, { 23, 24, 25, 26 } };
 	}
-
+	
 	/**
-	 * returns length of substring with non-repeating characters
-	 * 
-	 * @param str
-	 * @return
+	 * count frequency of each number in a array of size n which can have 1...n few missing few repeated
+	 * @param array
 	 */
-	public static int longestSubstring(String s) {
-		int start = 0;
-		int max = 0;
-		int index = 0;
-		int length = s.length();
+	public static void countFrequency(int[] array) {
+		int[] temp = new int[array.length];
+		System.arraycopy(array, 0, temp, 0, temp.length);
 
-		HashSet<Character> chars = new HashSet<>();
-		while (index < length) {
-			if (!chars.contains(s.charAt(index))) {
-				chars.add(s.charAt(index++));
-				max = Math.max(max, chars.size());
-			} else {
-				chars.remove(s.charAt(start++));
-			}
+		int n = temp.length;
+
+		for (int i = 0; i < temp.length; i++) {
+			temp[i]--;
 		}
 
-		return max;
-	}
-
-	/**
-	 * compressed a given string e.g. aabcccaaadd -> a2b1c3a3d2
-	 * 
-	 * @param str
-	 * @return
-	 */
-	public static String compress(String str) {
-		if (str == null || str.isEmpty())
-			return str;
-
-		StringBuilder sb = new StringBuilder();
-
-		int count = 0;
-		char[] chars = str.toCharArray();
-
-		for (int i = 0; i < chars.length; i++) {
-			count++;
-			if (i + 1 >= chars.length || chars[i] != chars[i + 1]) {
-				sb.append(chars[i]).append(count);
-				count = 0;
-			}
+		for (int i = 0; i < n; i++) {
+			int index = temp[i] % n;
+			temp[index] = temp[index] + n;
 		}
 
-		String compressedStr = sb.toString();
+		for (int i = 0; i < n; i++) {
+			temp[i] = temp[i] / n;
+		}
 
-		return compressedStr.length() < str.length() ? compressedStr : str;
-	}
+		System.out.println(Arrays.toString(temp));
+	}	
 
 	/**
 	 * Returns index for numbers having sum equal to given number (unsorted
@@ -158,6 +133,95 @@ public class ArrayUtils {
 				}
 			}
 		}
+	}
+	
+	/**
+	 * Sets entire row and column values to zero for each zero value in matrix
+	 * @param matrix
+	 */
+	public static void setMatrixZeroes(int[][] matrix) {
+		int rows = matrix.length;
+		int columns = matrix[0].length;
+		
+		int[] zeroRows = new int[rows];
+		int[] zeroColumns = new int[columns];
+		
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				if (matrix[i][j] == 0) {
+					zeroRows[i] = 1;
+					zeroColumns[j] = 1;
+				}
+			}			
+		}
+		
+		for (int i = 0; i < rows; i++) {
+			for (int j = 0; j < columns; j++) {
+				if (zeroRows[i] == 1 || zeroColumns[j] == 1) {
+					matrix[i][j] = 0;
+				}
+			}			
+		}
+		
+		return;
+	}
+	
+	/**
+	 * Sets entire row and column values to zero for each zero value in matrix - inplace 
+	 * @param matrix
+	 */
+	
+	public static void setZeroMatrix(int[][] matrix) {
+		int rows = matrix.length;
+		int columns = matrix[0].length;
+		
+		boolean hasZeroFirstRow = false;
+		boolean hasZeroFirstColumn = false;
+		
+		for (int i = 0; i < rows; i++) {
+			if (matrix[i][0] == 0) {
+				hasZeroFirstColumn = true;
+				break;
+			}
+		}
+		
+		for (int j = 0; j < columns; j++) {
+			if (matrix[0][j] == 0) {
+				hasZeroFirstRow = true;
+				break;
+			}
+		}		
+		
+		for (int i = 1; i < rows; i++) {
+			for (int j = 1; j < columns; j++) {
+				if (matrix[i][j] == 0) {
+					matrix[i][0] = 0;
+					matrix[0][j] = 0;
+				}
+			}			
+		}
+		
+		for (int i = 1; i < rows; i++) {
+			for (int j = 1; j < columns; j++) {
+				if (matrix[i][0] == 0 || matrix[0][j] == 0) {
+					matrix[i][j] = 0;
+				}
+			}			
+		}
+		
+		if (hasZeroFirstRow) {
+			for (int j = 0; j < columns; j++) {
+				matrix[0][j] = 0;
+			}
+		}
+		
+		if (hasZeroFirstColumn) {
+			for (int i = 0; i < rows; i++) {
+				matrix[i][0] = 0;
+			}
+		}		
+		
+		return;
 	}
 
 	/**
@@ -533,8 +597,8 @@ public class ArrayUtils {
 		
 		int count = 0;
 		
-		int middle = length / 2 + 1;
-		int middle2 = length/ 2;
+		int left = length / 2 + 1;
+		int right = length/ 2;
 		
 		int a = Integer.MIN_VALUE; 
 		int b = Integer.MIN_VALUE;
@@ -542,7 +606,7 @@ public class ArrayUtils {
 		int i = 0;
 		int j = 0;	
 		
-		while (count < middle) {
+		while (count < left) {
 			int item = Integer.MIN_VALUE;
 			if (i < array1.length && i < array2.length) {
 				if (array1[i] <= array2[j]) {
@@ -564,11 +628,11 @@ public class ArrayUtils {
 				j++;
 			}			
 			
-			if (count == middle2) {
+			if (count == right) {
 				b = item;
 			}
 			
-			if (count == middle) {
+			if (count == left) {
 				a = item;
 			}			
 		}
@@ -577,4 +641,170 @@ public class ArrayUtils {
 		
 		return length % 2 == 0 ? (a + b) / 2.0 : a;
 	}
+	
+	/**
+	 * return max profit from given share prices
+	 * @param sharePrices
+	 * @return maxProfit
+	 */
+	
+	public static int maxProfit(int[] sharePrices) {
+		
+		int minPrice = sharePrices[0];
+		int maxProfit = sharePrices[1] - sharePrices[0];
+		
+		for (int i = 1; i < sharePrices.length; i++) {			
+			int currentPrice = sharePrices[i];						
+			maxProfit = Math.max(maxProfit, currentPrice - minPrice);
+			minPrice = Math.min(minPrice, currentPrice);
+		}
+		
+		return maxProfit;
+	}
+	
+	/**
+	 * 
+	 * @param array
+	 */
+	public static void getProductsOfAllIntsExceptAtIndex(int[] array) {
+		
+		int[] products = new int[array.length];
+		
+		for (int i = 0; i < array.length; i++) {
+			if (i == 0) {
+				products[i] = 1;
+			} else {
+				products[i] = products[i - 1] * array [i - 1];
+			}
+		}
+		
+		int p = array[array.length - 1];
+		for (int i = array.length - 2; i >= 0; i--) {
+			products[i] = products[i] * p;
+			p *= array[i];
+			
+		}
+		
+		System.arraycopy(products, 0, array, 0, array.length);
+		
+	}
+	
+	/**
+	 * removes all given number from an array and returns new length 
+	 * @param array
+	 * @param num
+	 * @return
+	 */
+	
+	public static int removeNumber(int[] array, int num) {
+		
+		if (array == null || array.length == 0) return 0;
+		
+		int index = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+			if (array[i] != num) {
+				array[index++] = array[i];
+			}
+		}
+		
+		return index;
+	}
+	
+	// removes duplicates from a sorted array and returns new length;
+	
+	public static int removeDuplicates(int[] array) {
+		if (array == null || array.length == 0) return 0;
+		
+		int j = 1; 
+		
+		for (int i = 1; i < array.length; i++) {
+			if (array[i] != array[i - 1]) {
+				array[j++] = array[i]; 
+			}
+		}
+		
+		return j;
+		
+	}
+	
+	/**
+	 * sort almost sorted array - two numbers swapped in a sorted array
+	 * @param array
+	 */
+	public static void sortAlmostSorted(int[] array) {
+		int n = array.length;
+		for (int i = n - 1; i > 0; i--) {
+			if (array[i] < array[i-1]) {
+				int j = i - 1;
+				while (j >= 0 && array[j] > array[i]) {
+					j--;
+				}
+				
+				int temp = array[j + 1];
+				array[j + 1] = array[i];
+				array[i] = temp;
+			}
+		}
+	}
+	
+	/**
+	 * returns shortest distance between two given numbers
+	 * @param array
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	
+	public static int shortestDistance(int[] array, int x, int y) {
+		
+		int minDistance = Integer.MAX_VALUE;
+		int startIndex = -1;
+		
+		for (int i = 0; i < array.length; i++) {
+			
+			if (array[i] == x || array[i] == y) {
+				
+				if (startIndex != -1 && array[i] != array[startIndex]) {
+					minDistance = Math.min(minDistance, i - startIndex);
+				}
+				
+				startIndex = i;				
+			}
+		}
+		
+		return minDistance;		
+	}
+	
+	public static void topFrequecyWords() {
+		
+		String[] words = new String[] {"some", "thing", "is", "some", "absolute", "hanger", "hanger", "some"};
+		
+		HashMap<String, Integer> map = new HashMap<>();	
+		
+		PriorityQueue<Word> pq = new PriorityQueue<>(new Comparator<Word> () {			
+			@Override
+			public int compare (Word a, Word b) {
+				return b.getFrequency() == a.getFrequency() ? a.getWordStr().compareTo(b.getWordStr()) : b.getFrequency() - a.getFrequency();
+			}			
+		});
+		
+		for (String str : words) {
+			Word word = new Word(str);
+			if (map.containsKey(str)) {
+				map.put(str, map.get(str) + 1);
+				pq.remove(word);				
+			} else {
+				map.put(str, 1);
+			}	
+			
+			word.setFrequency(map.get(str));
+			pq.offer(word);
+		}
+		
+		while (!pq.isEmpty()) {
+			Word word = pq.poll();
+			System.out.println(word.getWordStr()+ " - " + word.getFrequency());
+		}
+	}	
 }

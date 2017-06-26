@@ -219,6 +219,27 @@ public class LinkListUtils {
 
 		return head;
 	}
+	
+	
+	public static Node getMiddleNode(Node head) {
+		
+		if (head == null || head.next == null) return head;
+		
+		Node slow = head;
+		Node fast = head.next;
+		
+		while (fast != null && fast.next != null) {
+			slow = slow.next;
+			fast = fast.next.next;			
+		}
+		
+		if (fast != null) {
+			System.out.println("Even Count");
+		} else {
+			System.out.println("Odd Count");
+		}
+		return slow;		
+	}
 
 	/**
 	 * prints linked list
