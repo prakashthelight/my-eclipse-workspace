@@ -3,6 +3,8 @@ package com.samples.utils;
 import java.util.ArrayList;
 import java.util.Stack;
 
+import com.samples.model.TreeNode;
+
 public class BinarySearchTreeUtils {
 	
 	public static TreeNode createBST() {

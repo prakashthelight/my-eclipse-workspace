@@ -1,9 +1,10 @@
-package com.samples.utils;
+package com.samples.model;
 
 public class Node {
 
 	public int value;
-	Node next;
+
+	public Node next;
 
 	public Node(int value) {
 		this.value = value;

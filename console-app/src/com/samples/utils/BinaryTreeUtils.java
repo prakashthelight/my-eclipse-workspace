@@ -1,5 +1,7 @@
 package com.samples.utils;
 
+import com.samples.model.TreeNode;
+
 public class BinaryTreeUtils {
 	
 	public static TreeNode generateSampleBTree() {

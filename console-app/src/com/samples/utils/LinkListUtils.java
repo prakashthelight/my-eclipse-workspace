@@ -1,5 +1,7 @@
 package com.samples.utils;
 
+import com.samples.model.Node;
+
 public class LinkListUtils {
 	/**
 	 * adds two number represented as linked list (numbers are stored in reverse

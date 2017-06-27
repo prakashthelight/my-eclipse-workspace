@@ -2,6 +2,8 @@ package com.samples.utils;
 
 import java.util.HashSet;
 
+import com.samples.model.Node;
+
 public class MyLinkedList {
 
 	private Node head;

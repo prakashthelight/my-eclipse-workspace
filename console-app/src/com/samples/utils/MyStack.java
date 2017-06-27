@@ -3,6 +3,8 @@ package com.samples.utils;
 import java.util.EmptyStackException;
 import java.util.Stack;
 
+import com.samples.model.Node;
+
 public class MyStack {
 
 	private Node top;

@@ -1,4 +1,4 @@
-package com.samples.utils;
+package com.samples.model;
 
 public class TreeNode {
 	public int value;
