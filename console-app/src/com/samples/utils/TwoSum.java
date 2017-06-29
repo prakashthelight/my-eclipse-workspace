@@ -1,6 +1,6 @@
 package com.samples.utils;
 
-import java.util.*;
+import java.util.HashMap;
 
 public class TwoSum {
 

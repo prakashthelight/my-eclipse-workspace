@@ -1,6 +1,12 @@
 package com.samples.utils;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
+import java.util.PriorityQueue;
 
 import com.samples.model.Word;
 
@@ -39,6 +45,32 @@ public class ArrayUtils {
 
 		System.out.println(Arrays.toString(temp));
 	}	
+	
+	/**
+	 * returns max sum a sub array can have in a given array
+	 * @param array
+	 * @return
+	 */
+	public static int[] maxSumSubArray(int[] array) {
+		int[] result = {-1, -1};
+		
+		int maxSum = 0;
+		int currentSum = 0;
+		
+		for (int i = 0; i < array.length; i++) {
+			currentSum += array[i];
+			
+			if (currentSum < 0) {
+				currentSum = 0;
+			}
+			
+			maxSum = Math.max(maxSum, currentSum);
+		}
+		
+		result[0] = maxSum;
+		
+		return result;		
+	}
 
 	/**
 	 * Returns index for numbers having sum equal to given number (unsorted

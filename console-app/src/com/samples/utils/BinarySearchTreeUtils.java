@@ -25,7 +25,7 @@ public class BinarySearchTreeUtils {
 	 * @return
 	 */
 	public static boolean isBinarySearchTree(TreeNode root) {
-		if (root ==  null || (root.left == null || root.right == null))
+		if (root ==  null || (root.left == null && root.right == null))
 			return true;
 		
 		return isBinarySearchTree(root, Integer.MIN_VALUE, Integer.MAX_VALUE); 
@@ -283,5 +283,77 @@ public class BinarySearchTreeUtils {
 		
 		return;
 	}
+	
+	/**
+	 * create binary search tree from a sorted array
+	 * @param sortedArray
+	 * @return
+	 */
+	public static TreeNode createBST(int[] sortedArray) {
+		return createBST(sortedArray, 0, sortedArray.length - 1);
+	}
+
+	/**
+	 * create binary search tree from a sorted array
+	 * @param sortedArray
+	 * @param start
+	 * @param end
+	 * @return
+	 */
+	public static TreeNode createBST(int[] sortedArray, int start, int end) {
+		if (start > end)
+			return null;
+
+		int mid = (start + end) / 2;
+		TreeNode root = new TreeNode(sortedArray[mid]);
+
+		root.left = createBST(sortedArray, start, mid - 1);
+		root.right = createBST(sortedArray, mid + 1, end);
+
+		return root;
+	}		
+	
+	/**
+	 * serialize BST to ArrayList using pre-order traversal and saving -1 for null nodes
+	 * @param root
+	 * @param nodeValues
+	 */
+	public static void serialize(TreeNode root, ArrayList<Integer> nodeValues) {
+		if (root == null) {
+			nodeValues.add(-1);
+			return;
+		}
 		
+		nodeValues.add(root.value);
+		serialize(root.left, nodeValues);
+		serialize(root.right, nodeValues);		
+	}
+	
+	/**
+	 * de-serialize BST from a serialized BST list
+	 * @param list
+	 * @return
+	 */
+	public static TreeNode deSerialize(ArrayList<Integer> list) {
+		list.add(0, 1); // just storing index to be referenced
+		return deSerializeBST(list);
+	}
+	
+	public static TreeNode deSerializeBST(ArrayList<Integer> list) {
+		int index = list.get(0);
+		
+		if (index > list.size() || list.get(index) == -1) {
+			list.set(0, ++index);
+			return null;
+		}
+		
+		TreeNode root = new TreeNode(list.get(index));
+		list.set(0, ++index);
+		
+		root.left = deSerializeBST(list);
+		root.right = deSerializeBST(list);	
+		
+		return root;
+	}	
+	
 }

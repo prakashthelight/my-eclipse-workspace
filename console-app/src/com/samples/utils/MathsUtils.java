@@ -91,4 +91,53 @@ public class MathsUtils {
         return newInt;
 	}
 	
+	
+	/**
+	 * fibonacci - iterative
+	 * @param n
+	 * @return
+	 */
+	public static int fibonacci(int n) {		
+		if (n == 0 || n == 1) return n;
+		
+		int a  = 0, b = 1;
+		int c = a + b;
+		for (int i = 2; i <= n; i++) {
+			c = a + b;
+			a = b;
+			b = c;
+		}
+		
+		return c;
+	}
+	
+	/**
+	 * fibonacci - recursive
+	 * @param n
+	 * @return
+	 */
+	public static long fibonacciRec(int n) {		
+		if (n == 0 || n == 1) {
+			return n;
+		} 
+
+		return fibonacciRec(n - 1) + fibonacciRec(n - 2);
+	}
+	
+	/**
+	 * fibonacci - memoization
+	 * @param n
+	 * @param memo
+	 * @return
+	 */
+	public static int fibonacci(int n, int[] memo) {		
+		if (n == 0 || n == 1) {
+			return n;
+		}
+		
+		if (memo[n] == 0) {
+			memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);;			
+		}		
+		return memo[n];		
+	}	
 }

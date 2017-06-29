@@ -33,5 +33,4 @@ public class BitUtils {
 		
 		return count;
 	}
-
 }
