@@ -18,6 +18,23 @@ public class BinarySearchTreeUtils {
 		
 		return root;
 	}
+	
+	public static TreeNode createBST(int[] array) {
+		TreeNode root = new TreeNode(array[0]);
+		
+		for (int i = 1; i < array.length; i++) {
+			addTreeNode(root, array[i]);
+		}
+		
+		return root;
+	}
+	
+	
+	public static int getHeight(TreeNode root) {
+		if (root == null) return -1;
+		
+		return 1 + Math.max(getHeight(root.left), getHeight(root.right));				
+	}
 
 	/**
 	 * validate if binary tree is binary search tree
@@ -289,7 +306,7 @@ public class BinarySearchTreeUtils {
 	 * @param sortedArray
 	 * @return
 	 */
-	public static TreeNode createBST(int[] sortedArray) {
+	public static TreeNode createBSTFromSortedArray(int[] sortedArray) {
 		return createBST(sortedArray, 0, sortedArray.length - 1);
 	}
 
