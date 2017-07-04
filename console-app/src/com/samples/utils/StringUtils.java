@@ -279,8 +279,8 @@ public class StringUtils {
 		
 		Hashtable<Character, Integer> badMatchTable = new Hashtable<>();
 		
-		for (int i = 0; i < pattern.length() - 1; i++) {
-			badMatchTable.put(pattern.charAt(i), pattern.length() - 1 - i);
+		for (int i = 0; i < pattern.length(); i++) {
+			badMatchTable.put(pattern.charAt(i), i);
 		}
 		
 		int defaultShift = pattern.length();
@@ -293,16 +293,18 @@ public class StringUtils {
 			if (source.charAt(k) == pattern.charAt(defaultShift - j - 1)) {
 				k--;
 				j++;
-			} else {
+			} else {				
 				char ch = source.charAt(k);
 				
-				int shift = defaultShift;
+				int shift = -1;
 				if (badMatchTable.containsKey(ch)) {
 					shift = badMatchTable.get(ch);
-				} 
+				}
 				
-				k = current + shift;
-				current = k;
+				shift = Math.max (1, k - shift);
+				
+				current = current + shift;
+				k = current;
 				j = 0;
 			}
 		}
