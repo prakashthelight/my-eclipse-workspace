@@ -24,5 +24,4 @@ public class Sample {
 			System.out.println("[" + Thread.currentThread().getName()+ "] I am in methodC()");			
 		}
 	}
-
 }

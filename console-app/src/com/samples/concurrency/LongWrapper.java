@@ -1,8 +1,8 @@
 package com.samples.concurrency;
 
 public class LongWrapper {
-	
-	private final Object obj = new Object();
+		
+	private final Object lock = new Object();
 	
 	private long l;
 	
@@ -15,7 +15,7 @@ public class LongWrapper {
 	}
 	
 	public void incrementValue() {
-		synchronized (obj) {
+		synchronized(lock) {
 			l = l + 1;
 		}		
 	}

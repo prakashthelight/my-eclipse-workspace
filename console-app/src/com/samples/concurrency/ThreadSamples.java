@@ -71,7 +71,7 @@ public class ThreadSamples {
 		Producer producer = new Producer();
 		
 		Runnable consumeTask = () -> {
-			for (int i = 0; i < 45; i++) {
+			for (int i = 0; i < 50; i++) {
 				consumer.consume();
 			}
 			

@@ -15,27 +15,28 @@ public class LRUCache {
     }
     
     public int get(int key) {
-        if (map.containsKey(key)) {
+        if (queue.contains(key)) {
             queue.remove(Integer.valueOf(key));
-            queue.addLast(key);
+            queue.addFirst(key);
             return map.get(key);
         } else {
             return -1;
         }
     }
     
-    public void put(int key, int value) {
+    public void set(int key, int value) {
         if (map.containsKey(key)) {
             map.put(key, value);
-            queue.removeFirst();
-            queue.addLast(key);
+            queue.removeLast();
+            queue.addFirst(key);
         } else {
-            if (this.capacity == map.size()) {
-                map.remove(queue.removeFirst());
+        	
+            if (this.capacity == queue.size()) {
+                map.remove(queue.removeLast());
             }
             
             map.put(key, value);
-            queue.addLast(key);
+            queue.addFirst(key);
         }
     }
 }

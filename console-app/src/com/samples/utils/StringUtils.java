@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Hashtable;
 import java.util.LinkedHashSet;
+import java.util.Stack;
 
 public class StringUtils {
 
@@ -82,6 +83,42 @@ public class StringUtils {
 		String compressedStr = sb.toString();
 
 		return compressedStr.length() < str.length() ? compressedStr : str;
+	}
+	
+	/**
+	 * remove paired characters aaabccddd -> abd
+	 * @param str
+	 * @return
+	 */
+	public static String getSuperReducedString(String str) {
+		if (str == null || str.length() < 2)
+			return str;
+
+		Stack<Character> stack = new Stack<>();
+
+		char[] chars = str.toCharArray();
+
+		for (int i = chars.length - 1; i >= 0; i--) {
+			char ch = chars[i];
+			if (!stack.isEmpty()) {
+				if (stack.peek() == ch) {
+					stack.pop();
+				} else {
+					stack.push(ch);
+				}
+			} else {
+				stack.push(ch);
+			}
+		}
+
+		StringBuilder sb = new StringBuilder();
+
+		while (!stack.isEmpty()) {
+			sb.append(stack.pop());
+		}
+
+		return sb.toString();
+
 	}
 	
 	/**

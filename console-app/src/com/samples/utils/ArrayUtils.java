@@ -46,6 +46,26 @@ public class ArrayUtils {
 		System.out.println(Arrays.toString(temp));
 	}	
 	
+	
+	public static int[] findTwoMaxElements() {
+		int[]  array = {12, 3, 90, 67, 23, 20, 2, 45, 10};		
+		int firstMax = Integer.MIN_VALUE;
+		int secondMax = Integer.MIN_VALUE;
+		
+		for (int item : array) {
+			
+			if (firstMax < item) {
+				firstMax = item;
+			}
+			
+			if (secondMax < item && item < firstMax) {
+				secondMax = item;
+			}			
+		}
+		
+		return new int[] {firstMax, secondMax};
+	}
+	
 	/**
 	 * returns max sum a sub array can have in a given array
 	 * @param array
@@ -769,6 +789,7 @@ public class ArrayUtils {
 		for (int i = n - 1; i > 0; i--) {
 			if (array[i] < array[i-1]) {
 				int j = i - 1;
+				
 				while (j >= 0 && array[j] > array[i]) {
 					j--;
 				}

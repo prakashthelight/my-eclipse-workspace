@@ -1,5 +1,7 @@
 package com.samples.utils;
 
+import java.util.HashSet;
+
 import com.samples.model.Node;
 
 public class LinkListUtils {
@@ -198,7 +200,7 @@ public class LinkListUtils {
 	 * @param head
 	 * @return
 	 */
-	public static Node deleteDuplicates(Node head) {
+	public static Node removeSortedDuplicates(Node head) {
 
 		if (head == null || head.next == null)
 			return head;
@@ -221,6 +223,33 @@ public class LinkListUtils {
 
 		return head;
 	}
+	
+	
+	public static Node removeDuplicates(Node head) {
+        if (head == null || head.next == null) {
+            return head;
+        }
+        
+        Node p1 = head;
+        Node p2 = head.next; 
+        HashSet<Integer> set = new HashSet<>();
+        set.add(p1.value);
+        
+        while (p2 != null) {
+            if (set.contains(p2.value)) { // if duplicate
+                p2 = p2.next;
+            } else {
+                set.add(p2.value); // add to set;
+                p1.next = p2;
+                p1 = p2;
+                p2 = p2.next;
+            }
+        }
+        
+        p1.next = p2;
+        
+        return head;
+    }
 	
 	
 	public static Node getMiddleNode(Node head) {
@@ -257,5 +286,71 @@ public class LinkListUtils {
 			System.out.print(temp.value);
 			temp = temp.next;
 		}
+	}
+	
+	/**
+	 * rotate linked list right - 1,2,3,4,5 -> 5,1,2,3,4
+	 * @param head
+	 * @return
+	 */
+	
+	public static Node rotateRight(Node head) {
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node prev = head;
+		Node current = head.next;
+
+		while (current.next != null) {
+			prev = current;
+			current = current.next;
+		}
+
+		prev.next = null;
+		current.next = head;
+		head = current;
+
+		return head;
+	}
+
+	/**
+	 * rotate linked list right, given number of times
+	 * @param head
+	 * @param k
+	 * @return
+	 */
+	public static Node rotateRight(Node head, int k) {
+		Node newNode = head;	
+		
+		while (k > 0) {
+			newNode = rotateRight(newNode);
+			k--;
+		}
+		
+		return newNode;
+	}
+
+	/**
+	 * rotate linked list left - 1,2,3,4,5 -> 2,3,4,5,1
+	 * @param head
+	 * @return
+	 */
+	public static Node rotateLeft(Node head) {
+
+		if (head == null || head.next == null)
+			return head;
+
+		Node temp = head;
+		head = head.next; // move head
+		temp.next = null;
+
+		Node anotherTemp = head;
+		while (anotherTemp.next != null) {
+			anotherTemp = anotherTemp.next;
+		}
+
+		anotherTemp.next = temp;
+		return head;
 	}
 }
