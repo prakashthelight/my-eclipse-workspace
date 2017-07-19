@@ -67,18 +67,19 @@ public class DPSolution {
 	public static boolean subsetSum(int[] array, int target) {
 		boolean[][] table = new boolean[array.length + 1][target + 1];
 		
+		// if target is zero, we can use empty set;
+		for (int i = 0; i < array.length + 1; i++) {
+			table[i][0] = true;
+		}
+				
 		// if subset is empty, we cannot sum up to target
-		for (int i = 1; i < target; i++) {
+		for (int i = 1; i < target + 1; i++) {
 			table[0][i] = false;
 		}
 		
-		// if target is zero, we can use empty set;
-		for (int i = 0; i < array.length; i++) {
-			table[i][0] = true;
-		}
 		
-		for (int i = 1; i < array.length; i++) {
-			for (int j = 1; j < target; j++) {
+		for (int i = 1; i <= array.length; i++) {
+			for (int j = 1; j <= target; j++) {
 				
 				// fist copy the table date from top
 				table[i][j] = table[i - 1][j];
@@ -88,6 +89,15 @@ public class DPSolution {
 				}
 			}
 		}
+		
+		for (boolean[] row : table) {
+			for (boolean item : row) {
+				System.out.print(item + " ");
+			}
+			
+			System.out.print("\n");
+		}
+		
 		return table[array.length][target];
 	}
 	

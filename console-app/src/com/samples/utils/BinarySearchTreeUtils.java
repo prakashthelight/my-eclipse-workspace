@@ -120,19 +120,22 @@ public class BinarySearchTreeUtils {
 			
 			TreeNode temp = null;
 			
+			// if no left child, return right node;
 			if (root.left == null) {
 				temp = root.right;
 				return temp;
-				
-			} else if (root.right == null) {
+			} else if (root.right == null) { // if no right node, return left node;
 				temp = root.left;
 				return temp;
 			}
 			
-			temp = minValueNode(root.right);
+			// find min node from right subtree
+			temp = minValueNode(root.right);			
 			
+			// assign value of that min node from right subtree to root node
 			root.value = temp.value;
 			
+			// delete that min node from right subtree
 			root.right = deleteNode(root.right, temp.value);
 			
 		}

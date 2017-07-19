@@ -835,7 +835,7 @@ public class ArrayUtils {
 		
 		HashMap<String, Integer> map = new HashMap<>();	
 		
-		PriorityQueue<Word> pq = new PriorityQueue<>(new Comparator<Word> () {			
+		PriorityQueue<Word> pq = new PriorityQueue<>(new Comparator<Word> () {
 			@Override
 			public int compare (Word a, Word b) {
 				return b.getFrequency() == a.getFrequency() ? a.getWordStr().compareTo(b.getWordStr()) : b.getFrequency() - a.getFrequency();

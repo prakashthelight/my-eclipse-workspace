@@ -16,7 +16,7 @@ public class LeetCode088 {
 		
 		merge(nums1, nums1.length - nums2.length, nums2, nums2.length);
 		
-		System.out.println(Arrays.toString(nums1));		
+		System.out.println(Arrays.toString(nums1));
 	}
 
 	public static void merge(int[] nums1, int m, int[] nums2, int n) {

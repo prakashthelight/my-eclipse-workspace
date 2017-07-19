@@ -7,9 +7,14 @@ import com.samples.model.Node;
 public class MyLinkedList {
 
 	private Node head;
+	private Node tail;
 
 	public Node getHead() {
-		return head;
+		return this.head;
+	}
+	
+	public Node getTail() {
+		return this.tail;
 	}
 
 	public void initialize(int[] nodes) {
@@ -36,17 +41,23 @@ public class MyLinkedList {
 		// if head is null and this is the first node in list
 		if (head == null) {
 			head = newNode;
+			tail = newNode;
 			return;
 		}
 
+		/*
+		// O(n) for adding not at end
 		Node temp = head;
-
 		// go to last node
 		while (temp.next != null) {
 			temp = temp.next;
 		}
-
 		temp.next = newNode;
+		*/
+		
+		// O(1) for adding node at end;
+		tail.next = newNode;
+		tail = tail.next;
 		return;
 	}
 
