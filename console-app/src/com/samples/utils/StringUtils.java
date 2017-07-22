@@ -351,5 +351,5 @@ public class StringUtils {
 		}
 		
 		return index;		
-	}	
+	}
 }
