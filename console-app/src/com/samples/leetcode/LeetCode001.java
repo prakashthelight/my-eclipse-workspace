@@ -5,10 +5,11 @@ import java.util.HashMap;
 /**
  * Find, if we have two numbers giving required sum in an array
  * https://leetcode.com/problems/two-sum
- * @author kumarpr
- *
+ * @author Kumar, Prakash
+ * @category Arrays, TwoSum
  */
 public class LeetCode001 {
+	
 	public static void main(String[] args) {
 		int[] array = new int[] { 12, 3, 4, 8, 28, 15 };
 		int[] result = twoSum(array, 11);
