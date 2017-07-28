@@ -75,8 +75,7 @@ public class MathsUtils {
 	public static int reverse(int num) {
 		int newInt = 0;        
         while (num != 0) {
-            try {
-            	
+            try {            	
             	if (newInt > newInt * 10) 
             		throw new ArithmeticException();
                 newInt = newInt * 10 + num % 10;    

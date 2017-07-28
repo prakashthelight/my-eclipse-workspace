@@ -10,5 +10,5 @@ public class DNode {
 
 	public DNode(int value) {
 		this.value = value;
-	}		
+	}
 }
