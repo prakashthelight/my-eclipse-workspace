@@ -145,29 +145,6 @@ public class StringUtils {
 		return false;
 	}
 	
-	public static boolean isPermutationOfPalindrome(String str) {
-		int[] charFrequencyCounts = new int['z' - 'a' + 1];
-		
-		for (char ch : str.toCharArray()) {
-			if ('a' <= ch && ch <= 'z') {				
-				charFrequencyCounts[ch - 'a']++;				
-			}
-		}
-		
-		boolean findOdd = false;
-		for (int count : charFrequencyCounts) {
-			if (count % 2 == 1) {
-				if (findOdd) {
-					return false;
-				}
-				
-				findOdd = true;
-			}
-		}
-		
-		return true;
-	}
-	
 	public static String sort(String str) {
 		char[] chars = str.toCharArray();
 		Arrays.sort(chars);
@@ -267,43 +244,6 @@ public class StringUtils {
 		return unique.isEmpty() ? result : unique.iterator().next();
 	}
 	
-	/**
-	 * encode string by replacing space with "%20", given that string has additional spaces in the end.
-	 * @param str
-	 * @return
-	 */
-	public static String urlify(String str) {
-
-		if (str == null || str.isEmpty()) {
-			return str;
-		}
-
-		char[] chars = str.toCharArray();
-
-		int j = str.length() - 1;
-		int k = j;
-		while (k >= 0 && chars[k] == ' ') {
-			k--;
-		}
-		
-		// if all string was just spaces
-		if (k == -1) {
-			return str;
-		}
-
-		while (k >=0 && j >= 0) {
-			if (chars[k] != ' ') {
-				chars[j--] = chars[k--];
-			} else {
-				chars[j--] = "%20".charAt(2);
-				chars[j--] = "%20".charAt(1);
-				chars[j--] = "%20".charAt(0);
-				k--;
-			}
-		}
-
-		return new String(chars);
-	}
 	
 	/**
 	 * search pattern in given source string - Boyer–Moore string search algorithm

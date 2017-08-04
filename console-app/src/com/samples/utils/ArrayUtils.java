@@ -508,12 +508,15 @@ public class ArrayUtils {
 		if (array == null || array.length == 0 || array.length != array[0].length)
 			return;
 
+		// iterate over layer
 		for (int layer = 0; layer < array.length / 2; layer++) {
 
+			// set start and end 
 			int start = layer;
 			int end = array.length - layer - 1;
 
-			for (int i = start; i < end; i++) {
+			// swap elements from start top-left;
+			for (int i = start; i < end; i++) {				
 				int offset = i - start;
 
 				int top = array[start][i];
