@@ -233,11 +233,11 @@ public class MyLinkedList {
 		if (head == null || head.next == null)
 			return head;
 
-		Node sec = head.next;
+		Node temp = head.next;
 		head.next = null;
 
-		Node newHead = reverse(sec);
-		sec.next = head;
+		Node newHead = reverse(temp);
+		temp.next = head;
 
 		return newHead;
 	}
