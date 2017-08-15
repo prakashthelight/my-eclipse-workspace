@@ -1,5 +1,11 @@
 package com.samples.leetcode;
 
+/**
+ * Minimum Size Subarray Sum
+ * https://leetcode.com/problems/minimum-size-subarray-sum
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode209 {
 	public static void main(String[] args) {
 		int[] array = new int[] {2,3,1,2,4,4};

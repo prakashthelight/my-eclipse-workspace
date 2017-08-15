@@ -36,9 +36,9 @@ public class LeetCode083 {
 		while (temp != null) {			
 			if (temp.value != prev.value) {
 				prev.next = temp;
-				prev = temp;				
+				prev = temp;
 			}			
-			temp = temp.next;			
+			temp = temp.next;
 		}
 		
 		prev.next = temp; // equivalent to setting prev.next = null 

@@ -59,7 +59,7 @@ public class LeetCode067 {
             st.push(remainder);
         }
         
-        StringBuilder sb = new StringBuilder();        
+        StringBuilder sb = new StringBuilder();
         while(!st.isEmpty()) {
             sb.append(String.valueOf(st.pop()));
         }

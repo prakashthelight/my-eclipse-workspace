@@ -2,6 +2,12 @@ package com.samples.leetcode;
 
 import java.util.HashMap;
 
+/**
+ * Add and Search Word - Data structure design
+ * https://leetcode.com/problems/add-and-search-word-data-structure-design
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode211 {
 	
 	public static void main(String[] args) {

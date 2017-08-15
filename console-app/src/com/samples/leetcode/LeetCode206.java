@@ -34,5 +34,4 @@ public class LeetCode206 {
         
         return p1;
     }
-
 }

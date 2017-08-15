@@ -2,6 +2,12 @@ package com.samples.leetcode;
 
 import com.samples.model.ListNode;
 
+/**
+ * Intersection of Two Linked Lists
+ * https://leetcode.com/problems/intersection-of-two-linked-lists
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode160 {
 
 	public static void main(String[] args) {

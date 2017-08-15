@@ -1,8 +1,8 @@
 package com.samples.leetcode;
 
 /**
- * Perfect Squares
- * https://leetcode.com/problems/perfect-squares
+ * Climbing Stairs
+ * https://leetcode.com/problems/climbing-stairs/
  * @author kumarpr
  *
  */

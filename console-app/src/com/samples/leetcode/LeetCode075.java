@@ -2,6 +2,12 @@ package com.samples.leetcode;
 
 import java.util.Arrays;
 
+/**
+ * Sort Colors
+ * https://leetcode.com/problems/sort-colors
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode075 {
 	
 	public static void main(String[] args) {

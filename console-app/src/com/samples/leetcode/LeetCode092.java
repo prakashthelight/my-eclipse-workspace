@@ -39,7 +39,7 @@ public class LeetCode092 {
             p2.next = prev.next;
             prev.next = p2;
             p2 = p1.next;
-        }       
+        }
         
         
         return dummyNode.next;
