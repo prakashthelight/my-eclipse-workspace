@@ -26,7 +26,7 @@ public class LeetCode516 {
 				if (str.charAt(i) == str.charAt(j)) {
 					dp[i][j] = dp[i+1][j-1] + 2;
 				} else {
-					// set with max of left down diagonal value
+					// set with max of left down  value
 					dp[i][j] = Math.max(dp[i+1][j], dp[i][j-1]);
 				}
 			}
