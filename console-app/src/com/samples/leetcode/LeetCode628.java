@@ -1,7 +1,6 @@
 package com.samples.leetcode;
 
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import java.util.Arrays;
 
 /**
  * Maximum Product of Three Numbers
@@ -9,11 +8,9 @@ import java.util.PriorityQueue;
  * @author kumarpr
  *
  */
-public class LeetCode628 {
-	public static void main(String[] args) {		
-		System.out.println("Running  - Leetcode - 628");
-		
-		int[] array = new int[] { 1, 2, 3 };
+public class LeetCode628 {	
+	public static void main(String[] args) {
+		int[] array = new int[] { 1, 2, 3 };	
 
 		// another test case;
 		array = new int[] { -4, -3, -2, -1, 60 };
@@ -24,22 +21,17 @@ public class LeetCode628 {
 		if (array == null || array.length < 3) {
 			throw new IllegalArgumentException("Invalid array or array length less than 3");
 		}
-
-		PriorityQueue<Integer> q = new PriorityQueue<>(new Comparator<Integer>() {
-			@Override
-			public int compare(Integer a, Integer b) {
-				if (a < 0 && b < 0) {
-					return a - b;
-				} else {
-					return b - a;
-				}
-			}
-		});
-
-		for (int item : array) {
-			q.offer(item);
-		}
-
-		return q.poll() * q.poll() * q.poll();
+        
+        int n = array.length;
+        
+        Arrays.sort(array);
+        
+        // product of top 3 max numbers
+        int a = array[n - 1] * array [ n - 2] * array [n - 3];
+        
+        // product of top positive and top two negative numbers 
+        int b = array[n - 1] * array [1] * array[0];
+            
+        return Math.max(a, b);
 	}
 }

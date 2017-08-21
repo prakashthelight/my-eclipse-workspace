@@ -12,12 +12,20 @@ import com.samples.model.ListNode;
 public class LeetCode206 {
 	
 	public static void main(String[] args) {
-		ListNode head = MyLinkedListUtil.createLinkedList(new int[] {10, 20, 15, 30, 8, 12});		
+		ListNode head = MyLinkedListUtil.createLinkedList(new int[] {10, 20, 15, 30, 8, 12});
+		
 		MyLinkedListUtil.print(head);
+		
 		head = reverseList(head);
+		
 		MyLinkedListUtil.print(head);		
 	}
 	
+	/**
+	 * reverse linked list - iterative 
+	 * @param head
+	 * @return
+	 */
 	public static ListNode reverseList(ListNode head) {
         if (head == null || head.next == null) return head;
         
@@ -34,4 +42,22 @@ public class LeetCode206 {
         
         return p1;
     }
+	
+	/**
+	 * reverse linked list - recursive
+	 * @param head
+	 * @return
+	 */
+	public static ListNode reverse(ListNode head) {
+		if (head == null || head.next == null)
+			return head;
+
+		ListNode temp = head.next;
+		head.next = null;
+
+		ListNode newHead = reverse(temp);
+		temp.next = head;
+
+		return newHead;
+	}
 }
