@@ -34,22 +34,14 @@ public class LeetCode020 {
             // if close brace, check if stack has corresponding open brace at top of stack. If not return false;
             if (closeBraces.indexOf(ch) > -1) {
                 
-                if (stack.isEmpty()) {
+                if (stack.isEmpty() || stack.peek() != openBraces.charAt(closeBraces.indexOf(ch))) {
                     return false;
                 }
-                if (stack.peek() != openBraces.charAt(closeBraces.indexOf(ch))) {
-                    return false;
-                } else {
-                    stack.pop();
-                }                
+                stack.pop();
             }
         }
         
         // stack is sopposed to empty after all open braces balanced out with close braces.
-        if (!stack.isEmpty()) {
-            return false;
-        } else {
-            return true;
-        }
+        return stack.isEmpty();
     }
 }
