@@ -1,0 +1,10 @@
+CREATE TABLE `sample`.`customers` (
+  `ID` VARCHAR(36) NOT NULL,
+  `NAME` VARCHAR(100) NOT NULL,
+  `ACTIVE` TINYINT NOT NULL,
+  PRIMARY KEY (`ID`))
+COMMENT = 'Customers Table';
+
+
+INSERT INTO CUSTOMERS VALUES (UUID(), "Blue Agency", 1);
+INSERT INTO CUSTOMERS VALUES (UUID(), "Orange Agency", 1);
