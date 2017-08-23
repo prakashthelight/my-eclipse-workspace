@@ -65,7 +65,7 @@ class WordDictionary {
 	}
 	
 	public TrieNode searchPattern(String pattern) {	
-		HashMap<Character, TrieNode> children = root.children;
+		//HashMap<Character, TrieNode> children = root.children;
 		TrieNode node = null;
 		
 		// TODO

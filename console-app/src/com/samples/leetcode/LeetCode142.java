@@ -1,24 +1,37 @@
 package com.samples.leetcode;
 
-import com.samples.model.Node;
+import com.samples.ds.utils.MyLinkedListUtil;
+import com.samples.model.ListNode;
 
 /**
- * 
+ * Linked List Cycle II
  * https://leetcode.com/problems/linked-list-cycle-ii
  * @author Kumar, Prakash
  *
  */
 public class LeetCode142 {
-
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		ListNode head = MyLinkedListUtil.createLinkedList(new int[] {10, 20, 15, 30, 8, 12});		
+		MyLinkedListUtil.print(head);		
+		MyLinkedListUtil.createCycle(head, 0);	
+		
+		ListNode startOfLoopNode = detectCycle(head);
+		
+		if (startOfLoopNode != null) {
+			System.out.println("Start of Loop Node: " + detectCycle(head).value);
+		} else {
+			System.out.println("No cycle detected.");
+		}
 	}
 	
-	
-	public Node detectCycle(Node head) {
+	/**
+	 * return true if Linked List has cycle
+	 * @param head
+	 * @return
+	 */
+	public static ListNode detectCycle(ListNode head) {
         
-        if (head == null || head.next == null) {
+		if (head == null || head.next == null) {
             return null;
         }
         
@@ -26,9 +39,8 @@ public class LeetCode142 {
             return head;
         }
         
-        
-        Node slow = head;
-        Node fast = head;
+        ListNode slow = head;
+        ListNode fast = head;
         
         boolean isCircular = false;
         while (fast != null && fast.next != null) {
@@ -37,6 +49,7 @@ public class LeetCode142 {
             
             if (slow == fast) {
                 isCircular = true;
+                break;
             }
         }
         
@@ -54,5 +67,4 @@ public class LeetCode142 {
             return null;
         }
     }
-
 }
