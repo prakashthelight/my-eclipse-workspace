@@ -32,6 +32,7 @@ public class LeetCode583 {
 						// diagonal left - up cell
 						dp[i][j] = dp[i - 1][j - 1] + 1;
 					} else {
+						// max of left and top
 						dp[i][j] = Math.max(dp[i][j - 1], dp[i - 1][j]);
 					}
 				}
