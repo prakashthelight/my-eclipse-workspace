@@ -14,6 +14,7 @@ public class LeetCode238 {
 	public static void main(String[] args) {
 		int[] nums = { 1, 2, 3, 4 };
 
+		System.out.println(Arrays.toString(nums));
 		System.out.println(Arrays.toString(productExceptSelf(nums)));
 	}
 
@@ -29,21 +30,21 @@ public class LeetCode238 {
 		}
 
 		int n = nums.length;
-		int[] result = new int[n];
+		int[] products = new int[n];
 
-		result[0] = 1;
+		products[0] = 1;
 		// start from second item
 		for (int i = 1; i < n; i++) {
-			result[i] = result[i - 1] * nums[i - 1];
+			products[i] = products[i - 1] * nums[i - 1];
 		}
 
 		int p = nums[n - 1];		
 		// start for second from last item
 		for (int i = n - 2; i >= 0; i--) {
-			result[i] = result[i] * p;
+			products[i] = products[i] * p;
 			p *= nums[i];
 		}
 
-		return result;
+		return products;
 	}
 }
