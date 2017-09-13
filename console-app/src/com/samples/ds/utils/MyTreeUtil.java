@@ -6,7 +6,7 @@ import com.samples.model.TreeNode;
 
 public class MyTreeUtil {
 
-	public static TreeNode generateSampleBTree(int[] array) {		
+	public static TreeNode createBinaryTree(int[] array) {		
 
 		int i = 0;
 
@@ -27,9 +27,9 @@ public class MyTreeUtil {
 		return root;
 	}
 	
-	public static TreeNode generateSampleBTree () {
+	public static TreeNode createBinaryTree () {
 		int[] array = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-		return generateSampleBTree(array);
+		return createBinaryTree(array);
 	}
 	
 	public static TreeNode createBST(int[] array) {

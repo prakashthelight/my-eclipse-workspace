@@ -4,21 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Find All Numbers Disappeared in an Array of 1 -> n
+ * Find All Numbers Disappeared in an Array of 1 -> n <br/>
  * https://leetcode.com/problems/find-all-numbers-disappeared-in-an-array
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode448 {
 
 	public static void main(String[] args) {
-		int[] nums = {4,3,2,7,8,2,3,1};
-		
+		int[] nums = { 4, 3, 2, 7, 8, 2, 3, 1 };
+
 		System.out.println(findDisappearedNumbers(nums).toString());
 	}
 
 	/**
 	 * return list of numbers disappeared from array of number 1 -> n
+	 * 
 	 * @param nums
 	 * @return
 	 */

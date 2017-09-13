@@ -3,7 +3,7 @@ package com.samples.leetcode;
 import java.util.Arrays;
 
 /**
- * Maximum Product Subarray
+ * Maximum Product Subarray <br/>
  * https://leetcode.com/problems/maximum-product-subarray
  * 
  * @author Kumar, Prakash
@@ -14,11 +14,13 @@ public class LeetCode152 {
 	public static void main(String[] args) {
 		int[] nums = { 2, 3, -2, 4 };
 
-		System.out.println(String.format("Maximum product of subarray in %s is %d", Arrays.toString(nums), maxProduct(nums)));
+		System.out.println(
+				String.format("Maximum product of subarray in %s is %d", Arrays.toString(nums), maxProduct(nums)));
 	}
 
 	/**
 	 * return max product of contiguous subarray
+	 * 
 	 * @param nums
 	 * @return
 	 */
@@ -40,5 +42,4 @@ public class LeetCode152 {
 
 		return result;
 	}
-
 }

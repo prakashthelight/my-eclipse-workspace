@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.LinkedList;
 
 /**
- * Word Pattern
+ * Word Pattern <br/>
  * https://leetcode.com/problems/word-pattern
  * 
  * @author Kumar, Prakash
@@ -79,5 +79,4 @@ public class LeetCode290 {
 
 		return true;
 	}
-
 }

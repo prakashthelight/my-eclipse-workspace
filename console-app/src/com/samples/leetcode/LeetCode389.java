@@ -1,5 +1,12 @@
 package com.samples.leetcode;
 
+/**
+ * Find the Difference <br/>
+ * https://leetcode.com/problems/find-the-difference
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode389 {
 
 	public static void main(String[] args) {
@@ -8,6 +15,7 @@ public class LeetCode389 {
 
 	/**
 	 * find additional character added to target string
+	 * 
 	 * @param s
 	 * @param t
 	 * @return

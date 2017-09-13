@@ -5,8 +5,9 @@ import java.util.HashMap;
 import java.util.Random;
 
 /**
- * Insert Delete GetRandom O(1) - Duplicates are not allowed
+ * Insert Delete GetRandom O(1) - Duplicates are not allowed <br/>
  * https://leetcode.com/problems/insert-delete-getrandom-o1
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -52,7 +53,7 @@ public class LeetCode380 {
 			}
 
 			int removeIndex = map.get(value);
-			
+
 			int lastValue = list.get(list.size() - 1);
 
 			if (removeIndex < list.size() - 1) {

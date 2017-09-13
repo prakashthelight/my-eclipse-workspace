@@ -1,7 +1,7 @@
 package com.samples.leetcode;
 
 /**
- * Single Number 
+ * Single Number <br/>
  * https://leetcode.com/problems/single-number
  * 
  * @author Kumar, Prakash
@@ -11,6 +11,7 @@ public class LeetCode136 {
 
 	public static void main(String[] args) {
 		int[] nums = new int[] { 2, 3, 4, 5, 4, 3, 2 };
+
 		System.out.println(singleNumber(nums));
 	}
 
@@ -30,5 +31,4 @@ public class LeetCode136 {
 
 		return result;
 	}
-
 }

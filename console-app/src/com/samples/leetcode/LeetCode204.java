@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Count Primes
+ * Count Primes <br/>
  * https://leetcode.com/problems/count-primes
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -15,6 +16,7 @@ public class LeetCode204 {
 
 	/**
 	 * return number of primes smaller then given number
+	 * 
 	 * @param n
 	 * @return
 	 */
@@ -24,7 +26,7 @@ public class LeetCode204 {
 		int primeCount = 0;
 
 		for (int i = 2; i < n; i++) {
-			
+
 			// if still not marked as non-prime
 			if (isNotPrimes[i] == false) {
 				primeCount++;

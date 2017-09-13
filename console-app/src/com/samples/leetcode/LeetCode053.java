@@ -1,9 +1,10 @@
 package com.samples.leetcode;
 
 /**
- * Maximum Subarray
+ * Maximum Sum Subarray <br/>
  * Algorithm https://leetcode.com/problems/maximum-subarray
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode053 {
@@ -12,14 +13,16 @@ public class LeetCode053 {
 
 		int[] array = new int[] { -2, 1, -3, 4, -1, 2, 1, -5, 4 };
 		int[] allNegativeArray = new int[] { -2, -11, -3, -4, -1, -2, -1, -5, -4 };
-		
+
 		System.out.println(findMaxSumSubArray(array));
 		System.out.println(findMaxSumSubArray(allNegativeArray));
 
 	}
 
 	/**
-	 * returns maximum sum using sub-array elements in given array - Kadane's 
+	 * returns maximum sum using sub-array elements in given array - Kadane's
+	 * Algorithm
+	 * 
 	 * @param array
 	 * @return
 	 */

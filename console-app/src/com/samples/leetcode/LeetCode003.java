@@ -2,6 +2,13 @@ package com.samples.leetcode;
 
 import java.util.HashSet;
 
+/**
+ * Longest Substring Without Repeating Characters<br/>
+ * https://leetcode.com/problems/longest-substring-without-repeating-characters
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode003 {
 
 	public static void main(String[] args) {

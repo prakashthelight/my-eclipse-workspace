@@ -2,12 +2,25 @@ package com.samples.leetcode;
 
 import java.util.Hashtable;
 
+/**
+ * Valid Anagram <br/>
+ * https://leetcode.com/problems/valid-anagram
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode242 {
 
 	public static void main(String[] args) {
 		System.out.println(isAnagram("anagram", "nagaram"));
 	}
 
+	/**
+	 * returns true if string t is anagram of string s
+	 * @param s
+	 * @param t
+	 * @return
+	 */
 	public static boolean isAnagram(String s, String t) {
 		if (s == null || t == null) {
 			return false;

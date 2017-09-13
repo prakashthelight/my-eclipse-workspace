@@ -3,14 +3,15 @@ package com.samples.leetcode;
 import java.util.HashMap;
 
 /**
- * Add and Search Word - Data structure design
+ * Add and Search Word - Data structure design <br/>
  * https://leetcode.com/problems/add-and-search-word-data-structure-design
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode211 {
-	
-	public static void main(String[] args) {
+
+	public static void main(String[] args) {		
 		WordDictionary dictionary = new WordDictionary();
 		dictionary.addWord("mad1");
 		dictionary.addWord("sad");
@@ -48,45 +49,39 @@ class WordDictionary {
 	}
 
 	public boolean searchWord(String word) {
-		
+
 		TrieNode temp = null;
-		
+
 		if (word.indexOf('.') > -1) {
 			temp = searchPattern(word);
 		} else {
 			temp = searchTrieNode(word);
 		}
-		
+
 		if (temp != null && temp.isLeaf) {
 			return true;
 		}
 
 		return false;
 	}
-	
-	public TrieNode searchPattern(String pattern) {	
-		//HashMap<Character, TrieNode> children = root.children;
+
+	public TrieNode searchPattern(String pattern) {
+		// HashMap<Character, TrieNode> children = root.children;
 		TrieNode node = null;
-		
+
 		// TODO
 		/**
-		for (int i = 0; i < pattern.length(); i++) {
-			char ch = pattern.charAt(i);
-			
-			if (ch != '.') {
-				if (children.containsKey(ch)) {
-					TrieNode tempNode = children.get(ch);
-					children = tempNode.children;
+		 * for (int i = 0; i < pattern.length(); i++) { char ch =
+		 * pattern.charAt(i);
+		 * 
+		 * if (ch != '.') { if (children.containsKey(ch)) { TrieNode tempNode =
+		 * children.get(ch); children = tempNode.children;
+		 * 
+		 * node = tempNode; } else { return null; } } else {
+		 * 
+		 * } }
+		 **/
 
-					node = tempNode;
-				} else {
-					return null;
-				}
-			} else {
-				
-			}			
-		}**/
-		
 		return node;
 	}
 
@@ -115,7 +110,7 @@ class TrieNode {
 
 	HashMap<Character, TrieNode> children = new HashMap<>();
 
-	boolean isLeaf;	
+	boolean isLeaf;
 
 	public TrieNode(char key) {
 		this.key = key;

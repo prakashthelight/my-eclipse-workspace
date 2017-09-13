@@ -1,7 +1,7 @@
 package com.samples.leetcode;
 
 /**
- * Minimum Path Sum 
+ * Minimum Path Sum <br/>
  * https://leetcode.com/problems/minimum-path-sum
  * 
  * @author Kumar, Prakash

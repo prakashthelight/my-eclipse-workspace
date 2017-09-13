@@ -1,16 +1,18 @@
 package com.samples.leetcode;
 
 /**
- * Edit Distance, - Find minimum number of edits - replace, insert, delete 
- * for converting one string to another string 
+ * Edit Distance, - Find minimum number of edits - replace, insert, delete for
+ * converting one string to another string <br/>
  * https://leetcode.com/problems/edit-distance
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode072 {
+
 	public static void main(String[] args) {
-		String str1 = "anshuman"; //a
-		String str2 = "antihuman"; //b
+		String str1 = "anshuman"; // a
+		String str2 = "antihuman"; // b
 		System.out.println(getMinEditDistance(str1, str2));
 	}
 

@@ -1,5 +1,12 @@
 package com.samples.leetcode;
 
+/**
+ * Reverse String II <br/>
+ * https://leetcode.com/problems/reverse-string-ii
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode541 {
 
 	public static void main(String[] args) {
@@ -8,6 +15,7 @@ public class LeetCode541 {
 
 	/**
 	 * special reverse, reverse each k characters in set of each 2*K characters
+	 * 
 	 * @param s
 	 * @param k
 	 * @return
@@ -25,6 +33,7 @@ public class LeetCode541 {
 		}
 
 		while (j < chars.length) {
+			
 			reverseString(chars, i, j);
 			i = i + skip;
 			j = i + k - 1;

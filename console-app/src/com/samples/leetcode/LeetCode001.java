@@ -3,16 +3,18 @@ package com.samples.leetcode;
 import java.util.HashMap;
 
 /**
- * Find, if we have two numbers giving required sum in an array
+ * Find, if we have two numbers giving required sum in an array <br/>
  * https://leetcode.com/problems/two-sum
+ * 
  * @author Kumar, Prakash
  * @category Arrays, TwoSum
  */
 public class LeetCode001 {
-	
+
 	public static void main(String[] args) {
 		int[] array = new int[] { 12, 3, 4, 8, 28, 15 };
 		int[] result = twoSum(array, 11);
+		
 		if (result[0] != -1) {
 			System.out.println(array[result[0]] + " " + array[result[1]]);
 		} else {

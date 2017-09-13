@@ -4,9 +4,10 @@ import com.samples.model.Node;
 import com.samples.utils.MyLinkedList;
 
 /**
- * Rotate Right Linked List
+ * Rotate Right Linked List <br/>
+ * https://leetcode.com/problems/rotate-list
  * 
- * @author kumarpr
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode061 {
@@ -19,7 +20,7 @@ public class LeetCode061 {
 		Node newHead = rotateRight(list.getHead(), k);
 		list.print();
 
-		System.out.print("Linked List after "+ k +" right rotatations: ");
+		System.out.print("Linked List after " + k + " right rotatations: ");
 		while (newHead != null) {
 			System.out.print(newHead.value + " ");
 			newHead = newHead.next;
@@ -58,12 +59,14 @@ public class LeetCode061 {
 	 */
 	public static Node rotateRight(Node head) {
 
+		// base conditions
 		if (head == null || head.next == null)
 			return head;
 
 		Node prev = head;
 		Node current = head.next;
 
+		// go to last node
 		while (current.next != null) {
 			prev = current;
 			current = current.next;

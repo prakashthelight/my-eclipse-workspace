@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Palindrome Number
+ * Palindrome Number <br/>
  * https://leetcode.com/problems/palindrome-number
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -15,6 +16,7 @@ public class LeetCode009 {
 
 	/**
 	 * returns true if given integer is palindrome
+	 * 
 	 * @param num
 	 * @return
 	 */

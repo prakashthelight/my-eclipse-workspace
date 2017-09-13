@@ -2,7 +2,15 @@ package com.samples.leetcode;
 
 import java.util.Hashtable;
 
+/**
+ * Implement strStr() <br/>
+ * https://leetcode.com/problems/implement-strstr
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode028 {
+
 	public static void main(String[] args) {
 		System.out.println(searchString("aabaabbbaabbbbabaaab", "abaa"));
 		System.out.println(searchString("ababbbbaaabbbaaa", "bbbb"));

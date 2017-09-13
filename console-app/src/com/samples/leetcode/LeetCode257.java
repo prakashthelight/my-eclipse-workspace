@@ -7,15 +7,16 @@ import com.samples.ds.utils.MyTreeUtil;
 import com.samples.model.TreeNode;
 
 /**
- * Binary Tree Paths
+ * Binary Tree Paths <br/>
  * https://leetcode.com/problems/binary-tree-paths
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode257 {
 
 	public static void main(String[] args) {
-		TreeNode root = MyTreeUtil.generateSampleBTree();
+		TreeNode root = MyTreeUtil.createBinaryTree();
 		
 		MyTreeUtil.print(root);
 		
@@ -62,5 +63,4 @@ public class LeetCode257 {
 
 		return paths;
 	}
-
 }

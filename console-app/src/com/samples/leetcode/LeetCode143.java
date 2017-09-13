@@ -4,8 +4,9 @@ import com.samples.ds.utils.MyLinkedListUtil;
 import com.samples.model.ListNode;
 
 /**
- * Reorder List
+ * Reorder List <br/>
  * https://leetcode.com/problems/reorder-list
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -15,7 +16,9 @@ public class LeetCode143 {
 		ListNode head = MyLinkedListUtil.createLinkedList(new int[] { 1, 2, 3, 4, 5, 6, 7 });
 
 		MyLinkedListUtil.print(head);
+
 		reorderList(head);
+
 		MyLinkedListUtil.print(head);
 	}
 
@@ -27,8 +30,8 @@ public class LeetCode143 {
 
 		ListNode prev = null, slow = head, fast = head, list1 = head;
 
-		// find middle of linked list and break it from middle
-
+		// find middle of linked list 
+		// and break it from middle to two linked lists
 		while (fast != null && fast.next != null) {
 			prev = slow;
 			slow = slow.next;
@@ -40,11 +43,13 @@ public class LeetCode143 {
 		// reverse second list
 		ListNode list2 = reverse(slow);
 
+		// merge two lists
 		merge(list1, list2);
 	}
 
 	/**
 	 * Reverse Linked List;
+	 * 
 	 * @param head
 	 * @return
 	 */
@@ -71,6 +76,7 @@ public class LeetCode143 {
 
 	/**
 	 * Merge Two Linked List
+	 * 
 	 * @param list1
 	 * @param list2
 	 */

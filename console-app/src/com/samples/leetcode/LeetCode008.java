@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * String to Integer (atoi)
+ * String to Integer (atoi) <br/>
  * https://leetcode.com/problems/string-to-integer-atoi
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -51,6 +52,7 @@ public class LeetCode008 {
 			if (ch >= '0' && ch <= '9') {
 				int digit = ch - 48;
 
+				// check for overflow
 				if (Integer.MAX_VALUE / 10 < num || Integer.MAX_VALUE / 10 == num && Integer.MAX_VALUE % 10 < digit) {
 					return !isNegative ? Integer.MAX_VALUE : Integer.MIN_VALUE;
 				}

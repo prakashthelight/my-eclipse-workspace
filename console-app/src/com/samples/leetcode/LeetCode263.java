@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Ugly Number
- * https://leetcode.com/problems/ugly-numbe
+ * Ugly Number <br/>
+ * https://leetcode.com/problems/ugly-number
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -14,7 +15,9 @@ public class LeetCode263 {
 	}
 
 	/**
-	 * returns true if number is ugly number i.e. its factor include just 2, 3, and 5
+	 * returns true if number is ugly number i.e. its factor include just 2, 3,
+	 * and 5
+	 * 
 	 * @param num
 	 * @return
 	 */
@@ -23,15 +26,15 @@ public class LeetCode263 {
 		if (num <= 0) {
 			return false;
 		}
-		
-		int[] factors = {2, 3, 5};
-		
+
+		int[] factors = { 2, 3, 5 };
+
 		for (int factor : factors) {
 			while (num % factor == 0) {
 				num /= factor;
 			}
 		}
-		
+
 		return num == 1;
 	}
 }

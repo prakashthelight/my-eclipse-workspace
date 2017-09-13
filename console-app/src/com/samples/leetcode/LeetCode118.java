@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Pascal's Triangle 
+ * Pascal's Triangle <br/>
  * https://leetcode.com/problems/pascals-triangle
  * 
  * @author Kumar, Prakash
@@ -14,7 +14,9 @@ public class LeetCode118 {
 
 	public static void main(String[] args) {
 		int numRows = 5;
+		
 		List<List<Integer>> result = generate(numRows);
+		
 		for (List<Integer> row : result) {
 			System.out.println(row);
 		}

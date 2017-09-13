@@ -3,8 +3,9 @@ package com.samples.leetcode;
 import java.util.Arrays;
 
 /**
- * Unique Paths II
+ * Unique Paths II <br/>
  * https://leetcode.com/problems/unique-paths-ii
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -12,10 +13,8 @@ import java.util.Arrays;
 public class LeetCode063 {
 
 	public static void main(String[] args) {
-		int[][] obstacleGrid = {{0,0,0},
-		                  {0,1,0},
-		                  {0,0,0}};
-		
+		int[][] obstacleGrid = { { 0, 0, 0 }, { 0, 1, 0 }, { 0, 0, 0 } };
+
 		System.out.println(uniquePathsWithObstacles(obstacleGrid));
 	}
 

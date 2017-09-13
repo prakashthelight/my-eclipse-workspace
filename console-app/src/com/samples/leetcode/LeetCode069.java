@@ -1,10 +1,10 @@
 package com.samples.leetcode;
 
 /**
- * Sqrt(x) 
+ * Sqrt(x) <br/>
  * https://leetcode.com/problems/sqrtx
  * 
- * @author kumarpr
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode069 {

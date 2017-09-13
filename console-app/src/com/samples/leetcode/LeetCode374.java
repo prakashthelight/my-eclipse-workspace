@@ -1,7 +1,7 @@
 package com.samples.leetcode;
 
 /**
- * Guess Number Higher or Lower
+ * Guess Number Higher or Lower <br/>
  * https://leetcode.com/problems/guess-number-higher-or-lower
  * 
  * @author Kumar, Prakash

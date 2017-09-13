@@ -3,7 +3,7 @@ package com.samples.leetcode;
 import java.util.Arrays;
 
 /**
- * Product of Array Except Self
+ * Product of Array Except Self <br/>
  * https://leetcode.com/problems/product-of-array-except-self
  * 
  * @author Kumar, Prakash
@@ -19,7 +19,9 @@ public class LeetCode238 {
 	}
 
 	/**
-	 * returns an array with products for all elements except the item at each index
+	 * returns an array with products for all elements except the item at each
+	 * index
+	 * 
 	 * @param nums
 	 * @return
 	 */
@@ -38,7 +40,7 @@ public class LeetCode238 {
 			products[i] = products[i - 1] * nums[i - 1];
 		}
 
-		int p = nums[n - 1];		
+		int p = nums[n - 1];
 		// start for second from last item
 		for (int i = n - 2; i >= 0; i--) {
 			products[i] = products[i] * p;

@@ -4,18 +4,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * K-th Smallest in Lexicographical Order
+ * K-th Smallest in Lexicographical Order <br/>
  * https://leetcode.com/problems/k-th-smallest-in-lexicographical-order
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode440 {
+	
 	public static void main(String[] args) {
-		System.out.println("Running  - Leetcode - 440");
-		
 		List<Integer> list = getLexicographicalOrder(13);
-
-		System.out.println(list.get(2 - 1));
+		
+		System.out.println(list);
+		int k = 2;
+		System.out.println(list.get(k - 1));
 	}
 
 	public static List<Integer> getLexicographicalOrder(int n) {
@@ -54,6 +56,7 @@ public class LeetCode440 {
 	}
 
 	public static void merge(int[] array, int[] temp, int left, int mid, int right) {
+		
 		int leftStart = left;
 		int leftEnd = mid;
 		int rightStart = mid + 1;
@@ -62,8 +65,12 @@ public class LeetCode440 {
 		int tempIndex = leftStart;
 
 		while (leftStart <= leftEnd && rightStart <= rightEnd) {
+			
+			// conver interger to string for comparison
 			String a = String.valueOf(array[leftStart]);
 			String b = String.valueOf(array[rightStart]);
+			
+			// compare for lexicographical order
 			if (a.compareTo(b) <= 0) {
 				temp[tempIndex++] = array[leftStart++];
 			} else {

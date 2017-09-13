@@ -5,22 +5,24 @@ import com.samples.model.Node;
 import com.samples.utils.MyLinkedList;
 
 /**
- * Palindrome Linked List
+ * Palindrome Linked List <br/>
  * https://leetcode.com/problems/palindrome-linked-list
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode234 {
-	
+
 	public static void main(String[] args) {
-		MyLinkedList list = new MyLinkedList();		
-		list.initialize(new int[] {1, 2, 3, 3, 2, 1});
-		
+		MyLinkedList list = new MyLinkedList();
+		list.initialize(new int[] { 1, 2, 3, 3, 2, 1 });
+
 		System.out.println("Linked List is Palindrome: " + isPalindrome(list.getHead()));
 	}
 
 	/**
 	 * returns true if Linked List is a palindrome
+	 * 
 	 * @param head
 	 * @return
 	 */

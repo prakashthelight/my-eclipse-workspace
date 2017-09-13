@@ -1,5 +1,12 @@
 package com.samples.leetcode;
 
+/**
+ * Reverse String <br/>
+ * https://leetcode.com/problems/reverse-string
+ * 
+ * @author Kumar, Prakash
+ *
+ */
 public class LeetCode344 {
 
 	public static void main(String[] args) {
@@ -8,6 +15,7 @@ public class LeetCode344 {
 
 	/**
 	 * reverse given string
+	 * 
 	 * @param s
 	 * @return
 	 */
@@ -31,6 +39,5 @@ public class LeetCode344 {
 		}
 
 		return new String(chars);
-
 	}
 }

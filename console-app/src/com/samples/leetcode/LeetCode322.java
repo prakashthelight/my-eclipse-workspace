@@ -1,12 +1,14 @@
 package com.samples.leetcode;
 
 /**
- * Coin Change 
- * https://leetcode.com/problems/coin-change * 
+ * Coin Change <br/>
+ * https://leetcode.com/problems/coin-change *
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode322 {
+	
 	public static void main(String[] args) {
 		int[] coins = { 1, 2, 5 };
 		int amount = 11;
@@ -17,6 +19,7 @@ public class LeetCode322 {
 
 	/**
 	 * returns minimum number of coins required for given amount
+	 * 
 	 * @param coins
 	 * @param amount
 	 * @return

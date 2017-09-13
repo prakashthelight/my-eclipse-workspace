@@ -1,14 +1,14 @@
 package com.samples.leetcode;
 
 /**
- * Container With Most Water
+ * Container With Most Water <br/>
  * https://leetcode.com/problems/container-with-most-water
  * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode011 {
-	
+
 	public static void main(String[] args) {
 		int[] heights = { 1, 8, 6, 2, 5, 4, 8, 3, 7 };
 
@@ -29,10 +29,10 @@ public class LeetCode011 {
 		int j = heights.length - 1;
 
 		while (i < j) {
-			
+
 			// take minmum height, as this would be the limit to hold water
 			int minHeight = Math.min(heights[i], heights[j]);
-			
+
 			maxArea = Math.max(maxArea, minHeight * (j - i));
 
 			if (heights[i] <= heights[j]) {

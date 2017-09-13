@@ -3,8 +3,9 @@ package com.samples.leetcode;
 import java.util.Arrays;
 
 /**
- * Spiral Matrix II
+ * Spiral Matrix II <br/>
  * https://leetcode.com/problems/spiral-matrix-ii
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -18,9 +19,9 @@ public class LeetCode059 {
 		}
 	}
 
-	
 	/**
 	 * populates and returns a n x n matrix, traversing it spiral order
+	 * 
 	 * @param n
 	 * @return
 	 */

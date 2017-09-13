@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Excel Sheet Column Title
+ * Excel Sheet Column Title <br/>
  * https://leetcode.com/problems/excel-sheet-column-title
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -10,12 +11,13 @@ public class LeetCode168 {
 
 	public static void main(String[] args) {
 		int num = 1;
-		
+
 		System.out.println(convertToTitle(num));
 	}
 
 	/**
 	 * converts number to excel column name
+	 * 
 	 * @param n
 	 * @return
 	 */

@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Delete Operation for Two Strings
+ * Delete Operation for Two Strings <br/>
  * https://leetcode.com/problems/delete-operation-for-two-strings
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -11,7 +12,7 @@ public class LeetCode583 {
 	public static void main(String[] args) {
 		String word1 = "sea";
 		String word2 = "eat";
-		
+
 		System.out.println(minDistance(word1, word2));
 	}
 

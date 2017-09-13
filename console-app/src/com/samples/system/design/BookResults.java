@@ -5,10 +5,8 @@ import java.util.Comparator;
 import java.util.PriorityQueue;
 
 /**
- * BookResults result = new BookResults();
- * result.merge();
- * result.printResult();
- * @author kumarpr
+ * BookResults
+ * @author Kumar, Prakash
  *
  */
 public class BookResults {

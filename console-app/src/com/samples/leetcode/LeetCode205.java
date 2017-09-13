@@ -5,19 +5,20 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 
 /**
- * Isomorphic Strings
+ * Isomorphic Strings <br/>
  * https://leetcode.com/problems/isomorphic-strings
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode205 {
 
 	public static void main(String[] args) {
-		
-		String s = "egg", t = "add"; 	// true
+
+		String s = "egg", t = "add"; // true
 		// String s = "foo", t = "bar"; // true
 		// String s = "paper", t = "title"; // true
-		
+
 		System.out.println(String.format("\'%s\' and \'%s\' are isomorphic : %s", s, t, isIsomorphic(s, t)));
 	}
 
@@ -32,7 +33,8 @@ public class LeetCode205 {
 		LinkedHashMap<Character, ArrayList<Integer>> mapS = new LinkedHashMap<Character, ArrayList<Integer>>();
 		LinkedHashMap<Character, ArrayList<Integer>> mapT = new LinkedHashMap<Character, ArrayList<Integer>>();
 
-		// create map of unique keys and corresponding list of their indces for s
+		// create map of unique keys and corresponding list of their indces for
+		// s
 		for (int i = 0; i < s.length(); i++) {
 			char ch = s.charAt(i);
 			if (!mapS.containsKey(ch)) {
@@ -44,7 +46,8 @@ public class LeetCode205 {
 			}
 		}
 
-		// create map of unique keys and corresponding list of their indces for t
+		// create map of unique keys and corresponding list of their indces for
+		// t
 		for (int i = 0; i < t.length(); i++) {
 			char ch = t.charAt(i);
 			if (!mapT.containsKey(ch)) {

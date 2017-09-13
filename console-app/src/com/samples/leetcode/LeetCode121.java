@@ -1,7 +1,7 @@
 package com.samples.leetcode;
 
 /**
- * Best Time to Buy and Sell Stock
+ * Best Time to Buy and Sell Stock <br/>
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock
  * 
  * @author Kumar, Prakash
@@ -11,7 +11,7 @@ public class LeetCode121 {
 
 	public static void main(String[] args) {
 		int[] sharePrices = { 7, 1, 5, 3, 6, 4 };
-		
+
 		System.out.println("Max Profit: " + maxProfit(sharePrices));
 	}
 

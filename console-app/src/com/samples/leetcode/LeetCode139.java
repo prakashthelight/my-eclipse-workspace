@@ -4,13 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Word Break
+ * Word Break <br/>
  * https://leetcode.com/problems/word-break
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode139 {
-	
+
 	public static void main(String[] args) {
 		String s = "leetcode";
 

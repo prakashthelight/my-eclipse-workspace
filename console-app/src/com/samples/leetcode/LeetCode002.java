@@ -4,10 +4,12 @@ import com.samples.model.Node;
 import com.samples.utils.LinkListUtils;
 
 /**
- * Add two number represented as LinkedList
- * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4) Output: 7 -> 0 -> 8
+ * Add two number represented as LinkedList <br/>
+ * Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)<br/>
+ * Output: 7 -> 0 -> 8<br/>
  * https://leetcode.com/problems/add-two-numbers
- * @author kumarpr
+ * 
+ * @author Kumar, Prakash
  *
  */
 public class LeetCode002 {

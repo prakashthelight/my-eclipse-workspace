@@ -1,8 +1,9 @@
 package com.samples.leetcode;
 
 /**
- * Happy Number 
- * https://leetcode.com/problems/happy-number 
+ * Happy Number <br/>
+ * https://leetcode.com/problems/happy-number
+ * 
  * @author Kumar, Prakash
  *
  */
@@ -14,8 +15,9 @@ public class LeetCode202 {
 	}
 
 	/**
-	 * returns true of given number is happy number - recursively adding sum of square of each digit becomes 1;
-	 * Floyd's cycle-finding algorithm
+	 * returns true of given number is happy number - recursively adding sum of
+	 * square of each digit becomes 1; Floyd's cycle-finding algorithm
+	 * 
 	 * @param n
 	 * @return
 	 */
@@ -35,6 +37,7 @@ public class LeetCode202 {
 
 	/**
 	 * returns integer after adding squares of each digit;
+	 * 
 	 * @param n
 	 * @return
 	 */

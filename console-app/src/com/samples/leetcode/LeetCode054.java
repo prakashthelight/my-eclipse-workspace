@@ -4,20 +4,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Spiral Matrix
+ * Spiral Matrix <br/>
+ * https://leetcode.com/problems/spiral-matrix
+ * 
  * @author Kumar, Prakash
  *
  */
 public class LeetCode054 {
 
 	public static void main(String[] args) {
-		int[][] matrix = {{1,2,3}, {4,5,6}, {7,8,9}};
-		
+		int[][] matrix = { { 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 } };
+
 		System.out.println(spiralOrder(matrix).toString());
 	}
 
 	/**
 	 * returns list of items after traversing matrix in spiral order
+	 * 
 	 * @param matrix
 	 * @return
 	 */
