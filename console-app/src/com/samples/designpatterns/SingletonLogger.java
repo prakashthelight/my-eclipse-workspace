@@ -6,6 +6,7 @@ public class SingletonLogger {
 	private static SingletonLogger instance;
 
 	private SingletonLogger() {
+
 	}
 
 	public static SingletonLogger getInstance() {
@@ -17,8 +18,8 @@ public class SingletonLogger {
 
 		return instance;
 	}
-	
-	public void log (String str) {
+
+	public void log(String str) {
 		System.out.println(str);
 	}
 }

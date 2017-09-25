@@ -34,12 +34,12 @@ public class LeetCode064 {
 
 		matrix[0][0] = grid[0][0];
 
-		// update path sum for each chell in first column;
+		// update path sum for each cell in first column;
 		for (int i = 1; i < m; i++) {
 			matrix[i][0] = matrix[i - 1][0] + grid[i][0];
 		}
 
-		// update path sum for each chell in first row;
+		// update path sum for each cell in first row;
 		for (int j = 1; j < n; j++) {
 			matrix[0][j] = matrix[0][j - 1] + grid[0][j];
 		}
