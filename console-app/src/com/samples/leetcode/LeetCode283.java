@@ -19,26 +19,26 @@ public class LeetCode283 {
 		System.out.println(Arrays.toString(nums));
 	}
 	
+	/**
+	 * Moves all zeros to end of array
+	 * @param nums
+	 */
 	public static void moveZeroes(int[] nums) {        
         if (nums == null || nums.length < 2) return;
         
-        int count = 0;
-        int i = -1;
-        int j = 0;
+        int j = 0; 
+        int i = 0;
+        
+        while (i < nums.length) {
+            if (nums[i] != 0) {
+                nums[j++] = nums[i];
+            }
+            
+            i++;
+        }
         
         while (j < nums.length) {
-            if (nums[j] != 0) {
-                nums[++i] = nums[j++];
-            } else {
-                j++;
-                count++;
-            }
-        }
-        
-        while (count > 0) {
-            nums[++i] = 0;
-            count--;
+            nums[j++] = 0;            
         }
     }
-
 }
