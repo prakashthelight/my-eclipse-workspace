@@ -10,7 +10,12 @@ package com.samples.leetcode;
 public class LeetCode344 {
 
 	public static void main(String[] args) {
-		System.out.println(reverseString("hello"));
+		String str = "hello";
+		System.out.println(reverseString(str));
+		
+		char[] s = str.toCharArray();
+		reverseString(s);
+		System.out.println(new String(s));
 	}
 
 	/**
@@ -40,4 +45,29 @@ public class LeetCode344 {
 
 		return new String(chars);
 	}
+	
+	/*
+	 * reverse given string - recursive
+	 */
+	public static void reverseString(char[] s) {
+        if (s.length < 2) {
+            return;
+        }
+        
+        swapChars(s, 0, s.length - 1);
+    }
+    
+	/*
+	 * recursive 
+	 */
+    public static void swapChars(char[] s, int i, int j) {
+        if (i >= j) {
+            return;
+        }
+        
+        char temp = s[i];
+        s[i] = s[j];
+        s[j] = temp;
+        swapChars(s, i+1, j-1);
+    }
 }
