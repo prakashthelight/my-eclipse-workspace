@@ -15,13 +15,14 @@ public class LeetCode024 {
 	public static void main(String[] args) {
 		ListNode head = MyLinkedListUtil.createLinkedList(new int[] {1,2,3,4,5,6});
 		
-		head = swapPairs(head);
+		//head = swapPairs(head);
+		head = swapPairsRecursive(head);
 		
 		MyLinkedListUtil.print(head);
 	}
 
 	/**
-	 * Swaps pair of LinkedList nodes
+	 * Swaps pair of LinkedList nodes - iterative
 	 * @param head
 	 * @return
 	 */
@@ -44,5 +45,22 @@ public class LeetCode024 {
 		}
 
 		return head;
+	}
+	
+	/**
+	 * Swaps pair of LinkedList nodes - recursive
+	 * @param head
+	 * @return
+	 */
+	public static ListNode swapPairsRecursive(ListNode head) {
+		if (head == null || head.next == null) {
+			return head;
+		}
+		
+		ListNode temp = head.next;
+		head.next = swapPairs(head.next.next);
+		temp.next = head;
+		
+		return temp;
 	}
 }
