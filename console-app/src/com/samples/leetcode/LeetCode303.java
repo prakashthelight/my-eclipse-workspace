@@ -19,10 +19,26 @@ public class LeetCode303 {
 }
 
 class NumArray {
+    int[] sumArray;
+    
+    public NumArray(int[] nums) {        
+        sumArray = new int[nums.length + 1];
+        
+        for (int i = 0; i < nums.length; i++) {
+            sumArray [i + 1] = sumArray[i] + nums[i]; 
+        }        
+    }
+    
+    public int sumRange(int i, int j) {
+        return sumArray[j + 1] - sumArray[i];
+    }
+}
+
+class NumArray1 {
 	private int[] nums;
 	private int[] temp;
 
-	public NumArray(int[] nums) {
+	public NumArray1(int[] nums) {
 		int length = nums.length;
 		this.nums = nums;
 		this.temp = new int[nums.length];
