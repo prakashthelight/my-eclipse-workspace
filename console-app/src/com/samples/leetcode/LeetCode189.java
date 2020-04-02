@@ -47,4 +47,32 @@ public class LeetCode189 {
 			nums[i] = temp[i];
 		}
 	}
+	
+	/**
+	 * Time complexity: O(n) Space complexity: O(1)
+	 * @param nums
+	 * @param k
+	 */
+	public static void rotateRight1(int[] nums, int k) {
+		if (nums == null || nums.length <= 1)
+			return;
+		
+		k = k % nums.length;
+		
+		if (k == 0)
+			return ;
+		
+		for(int start = 0, count = 0; count < nums.length; start++) {
+			int current = start;
+			int previous = nums[start];			
+			do {
+				int next = (current + k) % nums.length;		
+				int temp = nums[next];
+				nums[next] = previous;
+				previous = temp;
+				current = next;
+				count++;
+			} while (start != current);
+		}		
+	}
 }
