@@ -11,11 +11,24 @@ import org.json.JSONObject;
 
 public class BuddiesUtils {
 	
+	public static void main(String[] args) {
+		
+		List<TeamMember> members = BuddiesUtils.getTeamMembers();
+		
+		List<TeamMember> buddyList = BuddiesUtils.AddBuddy(members);
+		
+		for (TeamMember teamMember : buddyList) {
+			System.out.println(teamMember.getEmail() +" "+ (teamMember.getBuddy() != null ? teamMember.getBuddy().getEmail() :  "N/A"));
+		}
+		
+		BuddiesUtils.printJSON(buddyList);
+	}
+	
 	public static List<TeamMember> getTeamMembers() {
 		
 		LinkedList<TeamMember> list =  new LinkedList<TeamMember>();
 		
-		//list.add(CreateTeamMember("Prakash", "Kumar", "pk@somedomain.com"));
+		list.add(CreateTeamMember("Prakash", "Kumar", "pk@somedomain.com"));
 		
 		
 		return list;
