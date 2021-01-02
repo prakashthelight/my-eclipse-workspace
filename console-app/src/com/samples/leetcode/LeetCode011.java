@@ -30,7 +30,7 @@ public class LeetCode011 {
 
 		while (i < j) {
 
-			// take minmum height, as this would be the limit to hold water
+			// take minimum height, as this would be the limit to hold water
 			int minHeight = Math.min(heights[i], heights[j]);
 
 			maxArea = Math.max(maxArea, minHeight * (j - i));
