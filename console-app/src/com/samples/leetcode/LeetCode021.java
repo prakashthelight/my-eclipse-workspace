@@ -4,10 +4,11 @@ import com.samples.ds.utils.MyLinkedListUtil;
 import com.samples.model.ListNode;
 
 /**
- * Merge Two Sorted Lists <br/>
+ * 21. Merge Two Sorted Lists <br/>
  * https://leetcode.com/problems/merge-two-sorted-lists
  * 
  * @author Kumar, Prakash
+ * @category Linked List, Recursion
  *
  */
 public class LeetCode021 {
@@ -16,11 +17,14 @@ public class LeetCode021 {
 		ListNode l1 = MyLinkedListUtil.createLinkedList(new int[] { 2, 5, 7, 12, 90 });
 		ListNode l2 = MyLinkedListUtil.createLinkedList(new int[] { 1, 8, 35, 67, 85, 167 });
 
-		ListNode head = mergeTwoLists(l1, l2);
+		ListNode head = mergeTwoLists1(l1, l2);
 
 		MyLinkedListUtil.print(head);
 	}
 
+	/*
+	 * Iterative
+	 */
 	public static ListNode mergeTwoLists(ListNode l1, ListNode l2) {
 
 		if (l1 == null && l2 == null)
@@ -72,5 +76,39 @@ public class LeetCode021 {
 		}
 
 		return head;
+	}
+
+	/*
+	 * Recursive Implementation
+	 */
+	public static ListNode mergeTwoLists1(ListNode list1, ListNode list2) {
+		return mergeTwoListsRecursive(list1, list2);
+	}
+
+	public static ListNode mergeTwoListsRecursive(ListNode list1, ListNode list2) {
+		if (list1 == null && list2 == null) {
+			return null;
+		}
+
+		if (list1 == null && list2 != null) {
+			return list2;
+		}
+
+		if (list1 != null && list2 == null) {
+			return list1;
+		}
+
+		ListNode root;
+
+		if (list1.value < list2.value) {
+			root = list1;
+			list1 = list1.next;
+		} else {
+			root = list2;
+			list2 = list2.next;
+		}
+
+		root.next = mergeTwoListsRecursive(list1, list2);
+		return root;
 	}
 }

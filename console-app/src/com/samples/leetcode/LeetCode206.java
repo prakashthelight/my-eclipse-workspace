@@ -4,10 +4,11 @@ import com.samples.ds.utils.MyLinkedListUtil;
 import com.samples.model.ListNode;
 
 /**
- * Reverse Linked List <br/>
+ * 206. Reverse Linked List <br/>
  * https://leetcode.com/problems/reverse-linked-list
  * 
  * @author Kumar, Prakash
+ * @category Linked List, Recursion
  *
  */
 public class LeetCode206 {
