@@ -4,11 +4,11 @@ import com.samples.ds.utils.MyLinkedListUtil;
 import com.samples.model.ListNode;
 
 /**
- * Linked List Cycle II <br/>
+ * 142. Linked List Cycle II <br/>
  * https://leetcode.com/problems/linked-list-cycle-ii
  * 
  * @author Kumar, Prakash
- *
+ * @category HashTable, Linked List, Two Pointers
  */
 public class LeetCode142 {
 	
@@ -63,11 +63,9 @@ public class LeetCode142 {
 			while (slow != fast) {
 				slow = slow.next;
 				fast = fast.next;
-			}
-
-			return slow;
+			}			
 		}
 		
-		return null;
+		return isCircular? slow : null;
 	}
 }
