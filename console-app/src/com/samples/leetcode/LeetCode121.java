@@ -1,10 +1,11 @@
 package com.samples.leetcode;
 
 /**
- * Best Time to Buy and Sell Stock <br/>
+ * 121. Best Time to Buy and Sell Stock <br/>
  * https://leetcode.com/problems/best-time-to-buy-and-sell-stock
  * 
  * @author Kumar, Prakash
+ * @category Array, Dynamic Programming
  *
  */
 public class LeetCode121 {
@@ -24,7 +25,9 @@ public class LeetCode121 {
 		int maxProfit = prices[1] - minPrice;
 
 		for (int i = 1; i < prices.length; i++) {
+			// update maxProfit if more
 			maxProfit = Math.max(maxProfit, prices[i] - minPrice);
+			// update minPrice if less
 			minPrice = Math.min(prices[i], minPrice);
 		}
 
