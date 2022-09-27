@@ -9,10 +9,11 @@ import com.samples.ds.utils.MyTreeUtil;
 import com.samples.model.TreeNode;
 
 /**
- * Binary Tree Level Order Traversal <br/>
+ * 102. Binary Tree Level Order Traversal <br/>
  * https://leetcode.com/problems/binary-tree-level-order-traversal
  * 
  * @author Kumar, Prakash
+ * @category Tree, Breadth-First Search, Binary Tree
  *
  */
 public class LeetCode102 {
@@ -87,7 +88,7 @@ public class LeetCode102 {
 			return result;
 		}
 
-		// using two queues keeing next level of TreeNodes alterntely
+		// using two queues keeping next level of TreeNodes alternately
 		Queue<TreeNode> q1 = new LinkedList<TreeNode>();
 		Queue<TreeNode> q2 = new LinkedList<TreeNode>();
 
