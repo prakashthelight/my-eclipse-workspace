@@ -4,11 +4,11 @@ import com.samples.ds.utils.MyTreeUtil;
 import com.samples.model.TreeNode;
 
 /**
- * Validate Binary Search Tree <br/>
+ * 98. Validate Binary Search Tree <br/>
  * https://leetcode.com/problems/validate-binary-search-tree
  * 
  * @author Kumar, Prakash
- *
+ * @category Tree, Depth-First Search, Binary Search Tree, Binary Tree
  */
 public class LeetCode098 {
 
@@ -51,4 +51,23 @@ public class LeetCode098 {
 
 		return false;
 	}
+	
+	/**
+	 * return true if tree is a valid binary search tree
+	 * @param root
+	 * @param minValue
+	 * @param maxValue
+	 * @return
+	 */
+	public boolean isValidBST1(TreeNode root, long minValue, long maxValue) {
+        if (root == null) {
+            return true;
+        }
+
+        if (((long) root.value <= minValue) || ((long) root.value >= maxValue)) {
+            return false;
+        }
+
+        return isValidBST(root.left, minValue, root.value) && isValidBST(root.right, root.value, maxValue);
+    }
 }
