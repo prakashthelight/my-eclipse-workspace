@@ -3,10 +3,11 @@ package com.samples.leetcode;
 import com.samples.model.TreeNode;
 
 /**
- * Lowest Common Ancestor of a Binary Search Tree <br/>
+ * 235. Lowest Common Ancestor of a Binary Search Tree <br/>
  * https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree
  * 
  * @author Kumar, Prakash
+ * @category Tree, Depth-First Search, Binary Search Tree, Binary Tree
  *
  */
 public class LeetCode235 {
