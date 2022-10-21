@@ -10,9 +10,9 @@ package com.samples.leetcode;
 public class LeetCode1480 {
 
 	public static void main(String[] args) {
-		int[] nums = { 1, 2, 3, 4 };
+		int[] nums = { 1, 2, 3, 4, 5 };
 
-		var output = runningSum(nums);
+		var output = runningSum2(nums);
 		for (int item : output) {
 			System.out.printf("%d ", item);
 		}
@@ -38,5 +38,13 @@ public class LeetCode1480 {
 		}
 
 		return nums;
+	}
+	
+	public static int[] runningSum2(int[] nums) {
+		for (int i = 1; i < nums.length; i++) {
+            nums[i] += nums[i - 1];
+        }
+
+        return nums;
 	}
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * https://leetcode.com/problems/fizz-buzz
  * 
  * @author Kumar, Prakash
- *
+ * @category Math, String, Simulation
  */
 public class LeetCode412 {
 
@@ -40,4 +40,30 @@ public class LeetCode412 {
 
 		return list;
 	}
+	
+	public static List<String> fizzBuzz1(int n) {
+        List<String> result = new ArrayList<String>();
+
+        for (int i = 1; i <= n; i++) {
+            boolean isDivisibleBy3 = i % 3 == 0;
+            boolean isDivisibleBy5 = i % 5 == 0;
+
+            String item = "";
+            if (isDivisibleBy3) {
+                item += "Fizz";
+            }
+
+            if (isDivisibleBy5) {
+                item += "Buzz";
+            }
+
+            if (item.isEmpty()) {
+                item += String.valueOf(i);
+            }
+
+            result.add(item);
+        } 
+
+        return result;      
+    }
 }
